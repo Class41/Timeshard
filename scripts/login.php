@@ -13,7 +13,13 @@
     $db->query($sql);
     echo mysqli_error($db);
 
-    $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(30) NOT NULL , `password` VARCHAR(512) NOT NULL , `salt` VARCHAR(512) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` ( 
+        `id` INT NOT NULL AUTO_INCREMENT , 
+        `username` VARCHAR(30) NOT NULL , 
+        `password` VARCHAR(512) NOT NULL , 
+        `salt` VARCHAR(512) NOT NULL , 
+        PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+
     $db->query($sql);
     echo mysqli_error($db);
 
@@ -33,11 +39,17 @@
          
         if(hash('sha512', $row["salt"] . $_POST["password"] . $_POST["password"] . $row["salt"]) == $row["password"])
         {
-            echo "<p style=\"color: green;\">Valid credentials.</p>";
+            echo "<p style=\"color: green;\">Valid credentials</p>";
+        }
+        else
+        {
+            echo "<p style=\"color: red;\">Invalid Credentials</p>";
         }
     }
     else
     {
-        echo "<p style=\"color: red;\">Invalid credentials. </p>";
+        echo "<p style=\"color: red;\">Invalid Credentials</p>";
+        $GLOBALS["valid"] = false;
+        echo "Value" . var_dump($GLOBALS["valid"]);
     }
 ?>

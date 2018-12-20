@@ -1,10 +1,15 @@
 <!DOCTYPE HTML>
 
+<?php     
+	$valid = true; 
+?>
+
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./styles/style.css"/>
-	<title>Timeshard</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<title>Timeshard - Login</title>
 </head>
 
 <body>
@@ -12,9 +17,9 @@
 		<img src="./img/logo.png"/>
 	</div>
 	<div id="body">
-			<div id="logincontainer">
+			<div id="logincontainer" <?php echo "Value" . var_dump($GLOBALS["valid"]); if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
 			<form method="POST" action="." class="textcenter">
-				<h1 id="logintext" class="textgreen">Login</h1>
+				<h1 class="textgreen">Login</h1>
 				<?php 
 					if($_SERVER["REQUEST_METHOD"] == "POST")
 					{
@@ -22,11 +27,13 @@
 					}
 				?>
 				<br/>
-				<input type="text" name="username" /> <br />
-				<input type="password" name="password"/> <br />
-				<input type="submit" /> <br />
+				<input class="formitem" type="text" name="username" placeholder="Username"/> <br />
+				<input class="formitem" type="password" name="password" placeholder="Password"/> <br />
+				<input id="loginbutton" type="submit" value="Login"/> <br />
 			</form>
-            <a href="./pages/shared/resetpassword.php">Forgot Password?</a>
+			<hr/>
+			<div id="createaccount" class="loginbuttons">Forgot Password</div>
+			<div id="resetaccount" class="loginbuttons">Create Account</div>
 		</div>
 	</div>
 	<div id="footer">
