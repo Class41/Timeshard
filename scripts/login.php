@@ -9,23 +9,13 @@
         die("Connection failed: " . $db->connect_error);
     }
 
-    $sql = "CREATE DATABASE IF NOT EXISTS timeshard;
-    
-    CREATE TABLE IF NOT EXISTS timeshard.accounts(\n"
-
-    . "    `id` INT NOT NULL AUTO_INCREMENT,\n"
-
-    . "    `username` VARCHAR(30) NOT NULL,\n"
-
-    . "    `password` VARCHAR(512) NOT NULL,\n"
-
-    . "    `salt` VARCHAR(512) NOT NULL,\n"
-
-    . "    PRIMARY KEY(`id`)\n"
-
-    . ") ENGINE = InnoDB";
-
+    $sql = "CREATE DATABASE IF NOT EXISTS timeshard;";
     $db->query($sql);
+    echo mysqli_error($db);
+
+    $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(30) NOT NULL , `password` VARCHAR(512) NOT NULL , `salt` VARCHAR(512) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $db->query($sql);
+    echo mysqli_error($db);
 
 
     if($sql = $db->prepare("SELECT * FROM timeshard.accounts WHERE username=?"));
