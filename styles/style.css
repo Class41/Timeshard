@@ -5,7 +5,7 @@ body {
 }
 
 #body {
-    margin: 150px 25% 150px 25%;
+    margin: 150px 20% 150px 20%;
 }
 
 .textgreen {
@@ -23,4 +23,11 @@ body {
 #logincontainer {
     background-color: #2c3e50;
     padding: 20px;
+    max-width: 350px;
+    min-width: 150px;
+    margin: auto;
+}
+
+input {
+    margin: 10px;
 }
