@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 
-<?php     
-	$valid = true; 
+<?php
+	$valid = true;
 	$posted = false;
 ?>
 
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="./styles/style.css"/>
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Muli" rel="stylesheet">
-	<title>Timeshard - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./styles/login.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Muli" rel="stylesheet">
+    <title>Timeshard - Login</title>
 </head>
 
-	<?php 
+	<?php
 		if($_SERVER["REQUEST_METHOD"] == "POST")
 		{
 			$GLOBALS["posted"] = true;
@@ -22,11 +22,12 @@
 	?>
 
 <body>
-	<div id="header">
-		<img id="menulogo" src="./img/logo.png"/>
-	</div>
-	<div id="body">
-			<div id="logincontainer" <?php if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
+    <div id="header">
+        <img id="logo" src="./img/logo.png" />
+    </div>
+
+    <div id="body">
+        <div id="logincontainer" <?php if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
 			<form method="POST" action="." class="textcenter">
 				<div class="divheader">
 					<h1 class="textgreen">Login</h1>
@@ -40,9 +41,9 @@
 				<input id="loginbutton" type="submit" value="Login"/> <br />
 			</form>
 			<hr/>
-			<div id="createaccount" class="loginbuttons">Forgot Password</div>
-			<div id="resetaccount" class="loginbuttons">Create Account</div>
+			<div id="resetaccount" class="loginbuttons" onclick="window.location.assign('./pages/shared/forgot.php');">Forgot Password</div>
+			<div id="createaccount" class="loginbuttons" onclick="window.location.assign('./pages/shared/accountcreate.php');">Create Account</div>
 		</div>
-	</div>
+    </div>
 </body>
 </html>

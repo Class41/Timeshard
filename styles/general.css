@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/bg.png");
+    overflow-x: hidden;
+}
+
+#logo
+{
+    margin: auto;
+    width: 100px;
+    display: block;
+    margin-top: 50px;
+}
+
+input {
+    margin: 0 10px 10px 10px;
+    border: none;
+    border-bottom: 2px #27ae60 solid;
+    background: none;
+    width: 70%;
+    height: 3em;
+    font-weight: bold;
+    color: #ecf0f1;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: .7em;
+    outline: none;
+}
+
+.greenflag
+{
+    background-color: #27ae60;
+    width: calc(20% + 50px);
+    height: 50px;
+    transform: skew(50deg);
+}
+
+.formitem
+{
+    transition: .3s ease-in-out;
+    padding: 0 5px 0 5px;
+}
+
+.formitem:focus {
+    font-size: .9em;
+    padding: 0;
+    line-height: 1em;
+}
+
+.button {
+    width: 40%;
+    height: 3em;
+    margin-top: 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#register
+{
+    max-width: 800px;
+    padding: 30px;
+    text-align: center;
+    margin: auto;
+}
+
+.buttongreen {
+    color: #27ae60;
+    border: 2px solid #27ae60;
+}
+
+.buttonplain {
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+}
+
+#pagecontent {
+    margin: 50px 20% 150px 20%;
+}
