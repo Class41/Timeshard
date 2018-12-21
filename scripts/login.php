@@ -39,7 +39,9 @@
          
         if(hash('sha512', $row["salt"] . $_POST["password"] . $_POST["password"] . $row["salt"]) == $row["password"])
         {
-            echo "<p style=\"color: #ecf0f1;\">Valid credentials</p>";
+            session_start();
+            $_SESSION["username"] = $row["username"];
+            header("Location: ./pages/shared/menu.php");
         }
         else
         {

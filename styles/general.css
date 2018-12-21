@@ -119,3 +119,27 @@ input {
 #pagecontent {
     margin: 50px 20% 150px 20%;
 }
+
+.selectionbutton 
+{
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.container
+{
+    background-color: #2c3e50;
+    padding: 50px 20px 20px 20px;
+    max-width: 350px;
+    min-width: 150px;
+    margin: auto;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.containerheaderflag
+{
+    margin-bottom: -25px;
+}

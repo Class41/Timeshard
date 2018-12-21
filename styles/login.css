@@ -21,7 +21,7 @@ h1, p {
 }
 
 #body {
-    margin: 50px 20% 150px 20%;
+    margin: 75px 20% 150px 20%;
 }
 
 .errorticker
@@ -46,15 +46,15 @@ h1, p {
     0%
     {
         margin-top: -40px;
+        opacity: 0;
     }
 
     100%
     {
         margin-top: 0px;
+        opacity: 1;
     }
 }
-
-
 
 .divheader
 {
@@ -169,9 +169,56 @@ input {
 
 @keyframes shake
 {
-    0% { transform: translate(-10px, 0) }
-    25% { transform: translate(10px, 0) }
-    50% { transform: translate(-10px, 0) }
-    75% { transform: translate(10px, 0) }
-    100% { transform: translate(0, 0) }
+    0% { transform: translate(-10px, 0);}
+    25% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    75% { transform: translate(10px, 0); }
+    100% { transform: translate(0, 0);}
+}
+
+.flag {
+    width: calc(20% + 50px);
+    height: 50px;
+    transform: skew(50deg);
+    margin: auto;
+    min-width: 185px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.flag h1 {
+    transform: skew(-50deg);
+    display: block;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    position: relative;
+    top: 5px;
+}
+
+.textgreen {
+    color: #27ae60;
+}
+
+.textneutrallight {
+    color: #34495e;
+}
+
+.textneutral {
+    color: #2c3e50;
+}
+
+.flaggreen
+{
+    background-color: #27ae60;
+}
+
+.flagneutral
+{
+    background-color: #2c3e50;
+}
+
+.containerheaderflag
+{
+    margin-top: -50px;
 }

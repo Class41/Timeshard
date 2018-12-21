@@ -29,8 +29,8 @@
     <div id="body">
         <div id="logincontainer" <?php if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
 			<form method="POST" action="." class="textcenter">
-				<div class="divheader">
-					<h1 class="textgreen">Login</h1>
+				<div class="flag flaggreen containerheaderflag">
+					<h1 class="textneutral">Login</h1>
 				</div>
 				<div class="errorticker" <?php if($GLOBALS["valid"] == false) { echo 'style="display: block;"'; }?>>
 				Invalid Credentials

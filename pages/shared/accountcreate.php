@@ -1,15 +1,11 @@
 <!DOCTYPE HTML>
 
-<?php
-	$valid = true;
-?>
-
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../styles/general.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <title>Timeshard - Account Creation</title>
+    <title>Timeshard - Register</title>
 </head>
 
 <body>
@@ -19,10 +15,10 @@
         </div>
     </div>
     <div id="pagecontent">
-        <div class="flag flagneutral"> 
-            <h1 class="textgreen">Register</h1>
+        <div class="flag flaggreen containerheaderflag"> 
+            <h1 class="textneutral">Register</h1>
         </div>
-        <form id="register" method="POST" action="accountcreate.php">
+        <form id="register" class="container" method="POST" action="accountcreate.php">
             <input class="formitem" type="text" name="username" placeholder="Username" /> <br />
 			<input class="formitem" type="password" name="password" placeholder="Password" /> <br />
 			<input class="formitem" type="password" name="password2" placeholder="Repeat Password" /> <br />
