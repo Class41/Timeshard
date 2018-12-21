@@ -17,7 +17,7 @@
 		<img id="menulogo" src="./img/logo.png"/>
 	</div>
 	<div id="body">
-			<div id="logincontainer" <?php echo "Value" . var_dump($GLOBALS["valid"]); if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
+			<div id="logincontainer" <?php echo "Value" . var_dump($GLOBALS["valid"]); /*if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }*/?>>
 			<form method="POST" action="." class="textcenter">
 			<div class="divheader">
 				<h1 class="textgreen">Login</h1>

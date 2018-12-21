@@ -93,7 +93,7 @@ input {
     color: #ecf0f1;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: .7em;
-    outline-color: #34495e;
+    outline: none;
 }
 
 .formitem
@@ -103,8 +103,9 @@ input {
 }
 
 .formitem:focus {
-    font-size: 1.0em;
+    font-size: .9em;
     padding: 0;
+    line-height: 1em;
 }
 
 .shakeonload {
