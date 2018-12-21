@@ -18,6 +18,38 @@ h1, p {
     margin: 50px 20% 150px 20%;
 }
 
+.errorticker
+{
+    width: calc(100% + 65px);
+    margin: 0 0 0 -40px;
+    background-color: #e74c3c;
+    padding: 5px 0 5px 15px;
+    font-family: 'Muli', sans-serif;
+    animation: tickertoggle 1s;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+    display: none;
+    color: #ecf0f1;
+    z-index: -1;
+    position: relative;
+}
+
+@keyframes tickertoggle
+{
+    0%
+    {
+        margin-top: -40px;
+    }
+
+    100%
+    {
+        margin-top: 0px;
+    }
+}
+
+
+
 .divheader
 {
     width: calc(100% + 80px);
@@ -27,6 +59,7 @@ h1, p {
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
+    z-index: 5;
 }
 
 #menulogo
@@ -114,15 +147,9 @@ input {
 
 @keyframes shake
 {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+    0% { transform: translate(-10px, 0) }
+    25% { transform: translate(10px, 0) }
+    50% { transform: translate(-10px, 0) }
+    75% { transform: translate(10px, 0) }
+    100% { transform: translate(0, 0) }
 }

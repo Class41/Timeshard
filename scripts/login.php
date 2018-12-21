@@ -39,17 +39,15 @@
          
         if(hash('sha512', $row["salt"] . $_POST["password"] . $_POST["password"] . $row["salt"]) == $row["password"])
         {
-            echo "<p style=\"color: green; padding-top: 15px;\">Valid credentials</p>";
+            echo "<p style=\"color: #ecf0f1;\">Valid credentials</p>";
         }
         else
         {
-            echo "<p style=\"color: red; padding-top: 15px;\">Invalid Credentials</p>";
             $GLOBALS["valid"] = false;
         }
     }
     else
     {
-        echo "<p style=\"color: red; padding-top: 15px;\">Invalid Credentials</p>";
         $GLOBALS["valid"] = false;
     }
 ?>

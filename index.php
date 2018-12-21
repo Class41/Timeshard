@@ -2,6 +2,7 @@
 
 <?php     
 	$valid = true; 
+	$posted = false;
 ?>
 
 <html lang="en">
@@ -12,24 +13,29 @@
 	<title>Timeshard - Login</title>
 </head>
 
+	<?php 
+		if($_SERVER["REQUEST_METHOD"] == "POST")
+		{
+			$GLOBALS["posted"] = true;
+			require("./scripts/login.php");
+		}
+	?>
+
 <body>
 	<div id="header">
 		<img id="menulogo" src="./img/logo.png"/>
 	</div>
 	<div id="body">
-			<div id="logincontainer" <?php echo "Value" . var_dump($GLOBALS["valid"]); /*if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }*/?>>
+			<div id="logincontainer" <?php if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
 			<form method="POST" action="." class="textcenter">
-			<div class="divheader">
-				<h1 class="textgreen">Login</h1>
-			</div>
-				<?php 
-					if($_SERVER["REQUEST_METHOD"] == "POST")
-					{
-						require("./scripts/login.php");
-					}
-				?>
+				<div class="divheader">
+					<h1 class="textgreen">Login</h1>
+				</div>
+				<div class="errorticker" <?php if($GLOBALS["valid"] == false) { echo 'style="display: block;"'; }?>>
+				Invalid Credentials
+				</div>
 				<br/>
-				<input class="formitem" type="text" name="username" placeholder="Username"/> <br />
+				<input class="formitem" type="text" name="username" placeholder="Username" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\""; } ?>/> <br />
 				<input class="formitem" type="password" name="password" placeholder="Password"/> <br />
 				<input id="loginbutton" type="submit" value="Login"/> <br />
 			</form>
@@ -37,9 +43,6 @@
 			<div id="createaccount" class="loginbuttons">Forgot Password</div>
 			<div id="resetaccount" class="loginbuttons">Create Account</div>
 		</div>
-	</div>
-	<div id="footer">
-
 	</div>
 </body>
 </html>
