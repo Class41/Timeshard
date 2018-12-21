@@ -30,7 +30,7 @@ input {
 .flag {
     width: calc(20% + 50px);
     height: 50px;
-    transform: skew(50deg);
+    transform: skew(-25deg);
     margin: auto;
     min-width: 185px;
     -webkit-box-shadow: 0 8px 6px -6px black;
@@ -39,7 +39,7 @@ input {
 }
 
 .flag h1 {
-    transform: skew(-50deg);
+    transform: skew(25deg);
     display: block;
     text-align: center;
     font-family: 'Muli', sans-serif;
@@ -84,6 +84,7 @@ input {
 
 .button {
     width: 40%;
+    min-width: 71px;
     height: 3em;
     margin-top: 20px;
     font-size: 1em;
@@ -137,9 +138,16 @@ input {
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
+    transform: skew(3deg);
+}
+
+.container * {
+    transform: skew(-3deg);
 }
 
 .containerheaderflag
 {
     margin-bottom: -25px;
+    position: relative;
+    z-index: 5;
 }
