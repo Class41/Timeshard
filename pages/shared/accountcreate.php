@@ -19,16 +19,17 @@
         </div>
     </div>
     <div id="pagecontent">
-	<div class="greenflag">
-</div>
-        <form id="register">
+        <div class="flag flagneutral"> 
+            <h1 class="textgreen">Register</h1>
+        </div>
+        <form id="register" method="POST" action="accountcreate.php">
             <input class="formitem" type="text" name="username" placeholder="Username" /> <br />
 			<input class="formitem" type="password" name="password" placeholder="Password" /> <br />
 			<input class="formitem" type="password" name="password2" placeholder="Repeat Password" /> <br />
             <input class="formitem" type="text" name="firstName" placeholder="First Name" /><br />
             <input class="formitem" type="text" name="lastName" placeholder="Last Name" /><br />
             <input class="formitem" type="email" name="email" placeholder="Email" /><br />
-            <input class="button buttongreen" type="submit" value="Create Account" /> <br />
+            <input class="button buttongreen" type="submit" value="Create" > <br />
         </form>
     </div>
     </div>

@@ -27,12 +27,46 @@ input {
     outline: none;
 }
 
-.greenflag
-{
-    background-color: #27ae60;
+.flag {
     width: calc(20% + 50px);
     height: 50px;
     transform: skew(50deg);
+    margin: auto;
+    min-width: 185px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.flag h1 {
+    transform: skew(-50deg);
+    display: block;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+    position: relative;
+    top: 5px;
+}
+
+.textgreen {
+    color: #27ae60;
+}
+
+.textneutrallight {
+    color: #34495e;
+}
+
+.textneutral {
+    color: #2c3e50;
+}
+
+.flaggreen
+{
+    background-color: #27ae60;
+}
+
+.flagneutral
+{
+    background-color: #2c3e50;
 }
 
 .formitem
@@ -45,6 +79,7 @@ input {
     font-size: .9em;
     padding: 0;
     line-height: 1em;
+    border-color: #2ecc71;
 }
 
 .button {
@@ -53,6 +88,14 @@ input {
     margin-top: 20px;
     font-size: 1em;
     cursor: pointer;
+}
+
+.button:hover {
+    border-color: #2ecc71;
+}
+
+.button:active {
+    border-color: #27ae60;
 }
 
 #register

@@ -23,7 +23,7 @@
 
 <body>
     <div id="header">
-        <img id="logo" src="./img/logo.png" />
+        <img id="menulogo" src="./img/logo.png" />
     </div>
 
     <div id="body">
