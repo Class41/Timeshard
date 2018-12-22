@@ -5,6 +5,15 @@ body {
     overflow-x: hidden;
 }
 
+h3 {
+    text-align: center;
+    display: block;
+    margin: auto;
+    color: #ecf0f1;
+    margin-bottom: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
 #logo
 {
     margin: auto;
@@ -33,6 +42,7 @@ input {
     transform: skew(-25deg);
     margin: auto;
     min-width: 185px;
+    max-width: 250px;
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;

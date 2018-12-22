@@ -8,6 +8,22 @@
     <title>Timeshard - Register</title>
 </head>
 
+<?php 
+    session_start();
+
+    if($_SESSION["type"] == "employee")
+    {
+        header("Location: ../employee/home.php");
+    } 
+    elseif($_SESSION["type"] == "employer")
+    {
+        header("Location: ../employer/home.php");
+    }
+    elseif($_SESSION["type"] == "hybrid")
+    {
+        
+ ?>
+
 <body>
     <div>
         <div id="header">
@@ -19,6 +35,7 @@
             <h1 class="textneutral">Select</h1>
         </div>
         <div class="container">
+            <h3>Logged In: <?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>
             <input class="button buttongreen selectionbutton" type="submit" value="Employer" > <br />
             <input class="button buttongreen selectionbutton" type="submit" value="Employee" > <br />
         </div>
@@ -28,4 +45,13 @@
 
     </div>
 </body>
+
+    <?php 
+        }
+        else
+        {
+            session_unset();
+            header("Location: ../../index.php");
+        }
+    ?>
 </html>

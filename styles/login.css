@@ -73,7 +73,7 @@ h1, p {
     margin: auto;
     width: 200px;
     display: block;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .textgreen {
@@ -190,6 +190,7 @@ input {
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
+    max-width: 250px;
 }
 
 #flag h1 {
