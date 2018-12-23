@@ -6,15 +6,16 @@
     <link rel="stylesheet" type="text/css" href="../../styles/general.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <title>Timeshard - Register</title>
+</head>
 
-    <?php
+<?php
+        $posted = false;
 		if($_SERVER["REQUEST_METHOD"] == "POST")
 		{
 			$GLOBALS["posted"] = true;
-			require("./scripts/login.php");
+			require("../../scripts/registersubmit.php");
 		}
-	?>
-</head>
+?>
 
 <body>
     <div>
@@ -27,14 +28,13 @@
             <h1 class="textneutral">Register</h1>
         </div>
         <form id="register" class="container" method="POST" action="accountcreate.php">
-            <input class="formitem" type="text" name="username" placeholder="Username" /> <br /> <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\""; } ?>
-			<input class="formitem" type="password" name="password" placeholder="Password" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["password"] . "\""; } ?> /> <br />
-			<input class="formitem" type="password" name="password2" placeholder="Repeat Password" /> <br />
-            $salt = rand();<?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["$salt"] . "\""; } ?>/> <br /> 
-            <input class="formitem" type="text" name="firstName" placeholder="First Name" /><br /><?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\""; } ?>/>
-            <input class="formitem" type="text" name="lastName" placeholder="Last Name" /><br /><?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\""; } ?>/>
-            <input class="formitem" type="email" name="email" placeholder="Email" /><br /><?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\""; } ?>/>
-            <input class="button buttongreen" type="submit" value="Create" /> <br /><?php INSERT  INTO timeshard.accounts (username, password, salt, userdata) VALUES ("username", "password", "$salt", (INSERT INTO timeshard.user (firstname, lastname, email) VALUES ("firstName", "lastName", "email") SELECT SCOPE_IDENTITY())); ?>
+            <input class="formitem" type="text" name="username" placeholder="Username" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /> <br />
+			<input class="formitem" type="password" name="password" placeholder="Password"/> <br />
+			<input class="formitem" type="password" name="password2" placeholder="Repeat Password"/> <br />
+            <input class="formitem" type="text" name="firstName" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?> /><br />
+            <input class="formitem" type="text" name="lastName" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?> /><br />
+            <input class="formitem" type="email" name="email" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> /><br />
+            <input class="button buttongreen" type="submit" value="Create" > <br />
         </form>
     </div>
     </div>
