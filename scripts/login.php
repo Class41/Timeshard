@@ -26,8 +26,8 @@
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 
         `username` VARCHAR(30) NOT NULL , 
-        `password` VARCHAR(512) NOT NULL , 
-        `salt` VARCHAR(512) NOT NULL ,
+        `password` VARCHAR(96) NOT NULL , 
+        `salt` VARCHAR(128) NOT NULL ,
         `type` VARCHAR(30) NOT NULL , 
         `userdata` int , 
         FOREIGN KEY (userdata) REFERENCES user(id),
@@ -48,8 +48,8 @@
     if($result->num_rows == 1)
     {
         $row = $result->fetch_assoc();   
-        
-        if(hash('sha512', $row["salt"] . $_POST["password"] . $_POST["password"] . $row["salt"]) == $row["password"])
+
+        if(password_verify($_POST["password"] . $row["salt"] . $_POST["password"], $row["password"]))
         {
             session_start();
             $_SESSION["username"] = $row["username"];
@@ -74,16 +74,19 @@
             $_SESSION["firstname"] = $row["firstname"];
             $_SESSION["lastname"] = $row["lastname"];
             $_SESSION["email"] = $row["email"];
+            mysqli_close($db);
 
             header("Location: ./pages/shared/menu.php");
         }
         else
         {
             $GLOBALS["valid"] = false;
+            mysqli_close($db);
         }
     }
     else
     {
         $GLOBALS["valid"] = false;
+        mysqli_close($db);
     }
 ?>

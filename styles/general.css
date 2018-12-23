@@ -18,7 +18,7 @@ h3 {
 	display: block;
 	margin: auto;
 	margin-top: 50px;
-	width: 100px;
+	width: 100px; 
 }
 
 input {
@@ -157,4 +157,8 @@ input {
 
 ::selection {
 	background-color: #34495e;
+}
+
+::placeholder {
+    color: #95a5a6;
 }
