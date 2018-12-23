@@ -21,7 +21,6 @@
         PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 
     $db->query($sql);
-    echo mysqli_error($db);
 
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 
@@ -34,7 +33,6 @@
         PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 
     $db->query($sql);
-    echo mysqli_error($db);
 
     if($sql = $db->prepare("SELECT * FROM timeshard.accounts WHERE username=?"))
     {

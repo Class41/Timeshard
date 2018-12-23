@@ -23,9 +23,6 @@
     function PassCrypt()
     {
         $_POST["password"] = password_hash($_POST["password"] . $GLOBALS["salt"] . $_POST["password"], PASSWORD_ARGON2I);
-        echo $_POST["password"] . "<br/><br/>";
-        $_POST["password"] = password_hash($_POST["password"] . $GLOBALS["salt"] . $_POST["password"], PASSWORD_ARGON2I);
-        echo $_POST["password"] . "<br/><br/>";
     }
 
     function InsertRegistration()
