@@ -217,6 +217,11 @@ input {
 	text-overflow: ellipsis;
 }
 
+@keyframes navloadin {
+	from {transform: translate(-100px, -100px) skew(10deg) rotate(-100deg);}
+	to {transform: translate(0) skew(10deg) rotate(15deg);}
+}
+
 #nav {
 	background-color: #2c3e50;
 	transform: skew(10deg) rotate(15deg);
@@ -227,6 +232,7 @@ input {
 	position: absolute;
 	top: 10px;
 	user-select: none;
+	animation: navloadin .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .navitem {
