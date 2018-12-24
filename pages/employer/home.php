@@ -18,6 +18,20 @@ if($_SESSION["type"] != "employer" && $_SESSION["type"] != "hybrid")
     </head>
 
     <body>
+         <div id="nav">
+            <div class="navitem bgitemred" onclick="Logout(); window.location.assign('../../index.php');">
+                <p class="navitemcontenttext">Logout</p>
+                <img class="navitemcontenticon" src="../../img/logoff.svg"/>
+            </div>
+            <?php if($_SESSION["type"] == "hybrid") {?> 
+            
+            <div class="navitem bgitemgreen" onclick="window.location.assign('../shared/menu.php');">
+                <p class="navitemcontenttext">Menu</p>
+                <img class="navitemcontenticon" src="../../img/return.svg"/>
+            </div>
+            <?php }?>
+        </div>
+        
         <div>
             <div id="header">
                 <img id="logo" src="../../img/logo.png" />

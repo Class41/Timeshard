@@ -12,15 +12,7 @@
         header("Location: ../employer/home.php");
     }
     elseif($_SESSION["type"] == "hybrid")
-    {
-       if($_SERVER["REQUEST_METHOD"] == "POST")
-       {
-           if(isset($_POST["logout"]))
-           {
-                session_destroy();
-                header("Location: ../../index.php");
-           }
-       } 
+    { 
  ?>
 
 <html lang="en">
@@ -29,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="../../styles/general.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <title>Timeshard - <?php echo $_SESSION["firstname"][0] . ". " . $_SESSION["lastname"][0];?></title>
+    <script src="../../scripts/logout.js"></script>
 </head>
 
 <body>
@@ -46,7 +39,7 @@
             <input class="button buttongreen selectionbutton" type="button" value="Employer" onclick="window.location.assign('../employer/home.php');"> <br />
             <input class="button buttongreen selectionbutton" type="button" value="Employee" onclick="window.location.assign('../employee/home.php');"> <br />
             <form method="POST">
-                <input class="button buttongreen selectionbutton logbutton" type="submit" value="Logout" name="logout"> <br />
+                <input class="button buttongreen selectionbutton logbutton" type="submit" value="Logout" onclick="Logout(); window.location.assign('../../index.php');"> <br />
             </form>
         </div>
     </div>

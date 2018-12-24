@@ -15,21 +15,21 @@ if($_SESSION["type"] != "employee" && $_SESSION["type"] != "hybrid")
         <link rel="stylesheet" type="text/css" href="../../styles/general.css" />
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
         <title>Timeshard - <?php echo $_SESSION["firstname"][0] . ". " . $_SESSION["lastname"][0];?></title>
+        <script src="../../scripts/logout.js"></script>
     </head>
 
     <body>
         <div id="nav">
-            <div class="navitem bgitemred">
+            <div class="navitem bgitemred" onclick="Logout(); window.location.assign('../../index.php');">
                 <p class="navitemcontenttext">Logout</p>
                 <img class="navitemcontenticon" src="../../img/logoff.svg"/>
             </div>
             <?php if($_SESSION["type"] == "hybrid") {?> 
             
-            <div class="navitem bgitemgreen">
+            <div class="navitem bgitemgreen" onclick="window.location.assign('../shared/menu.php');">
                 <p class="navitemcontenttext">Menu</p>
                 <img class="navitemcontenticon" src="../../img/return.svg"/>
             </div>
-
             <?php }?>
         </div>
 

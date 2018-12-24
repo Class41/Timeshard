@@ -224,7 +224,8 @@ input {
 	padding: 3px 5px 3px 8px;
 	box-shadow: 0 8px 6px -6px black;
 	position: absolute;
-	top: 50px;
+	bottom: 0px;
+	user-select: none;
 }
 
 .navitem {
