@@ -1,6 +1,19 @@
-<link rel="stylesheet" type="text/css" href="../../styles/login.css" />
+var usernameReg = /^[A-Za-z0-9][@]/;
 
-myFunction(value1)
+function userNameCheck() {
+    var field = document.getElementsByName("username")[0];
+    var result = usernameReg.exec(field.value);
+
+    if (result != null) {
+        alert("Found");
+    }
+    else {
+        field.classList.add("shakeonload");
+    }
+}
+
+
+/*myFunction(value1)
 {
 
 value1 = true; 
@@ -118,4 +131,4 @@ emailCheck();
 userNameCheck(); 
 
 return value1; 
-}
+}*/

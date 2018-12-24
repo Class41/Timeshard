@@ -21,6 +21,28 @@ h3 {
 	width: 100px; 
 }
 
+.shakeonload {
+	animation: shake forwards .3s ease;
+}
+
+@keyframes shake {
+	0% {
+		transform: skew(3deg) translate(-10px, 0);
+	}
+	25% {
+		transform: translate(10px, 0);
+	}
+	50% {
+		transform: translate(-10px, 0);
+	}
+	75% {
+		transform: translate(10px, 0);
+	}
+	100% {
+		transform: skew(3deg) translate(0, 0);
+	}
+}
+
 input {
 	background: none;
 	border: none;
