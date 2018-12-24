@@ -22,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <title>Timeshard - <?php echo $_SESSION["firstname"][0] . ". " . $_SESSION["lastname"][0];?></title>
     <script src="../../scripts/logout.js"></script>
+    <script src="../../scripts/smoothload.js"></script>
 </head>
 
 <body>
