@@ -246,11 +246,18 @@ input {
 	color: #ecf0f1;
 	font-weight: bold;
 	transform: skew(25deg);
+	position: relative;
+	left: 20px;
 }
 
 .navitemcontenticon {
 	transform: skew(25deg);
 	fill: white;
+	width: 25px;
+	height: 25px;
+	position: relative;
+	right: 5px;
+	top: 35px;
 }
 
 .bgitemgreen {
