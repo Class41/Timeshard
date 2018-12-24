@@ -35,11 +35,11 @@
 
     <div id="body">
         <div id="logincontainer" <?php if($GLOBALS["valid"] == false) { echo 'class="shakeonload"'; }?>>
-			<form method="POST" action="." class="textcenter">
-				<div id="flag" class="flaggreen containerheaderflag">
-					<h1 class="textneutral">Login</h1>
+			<form method="POST" action="." class="textcenter ignore">
+				<div id="flag" class="flaggreen containerheaderflag ignore">
+					<h1 class="textneutral ignore">Login</h1>
 				</div>
-				<div class="errorticker" <?php if($GLOBALS["valid"] == false) { echo 'style="display: block;"'; }?>>
+				<div class="errorticker ignore" <?php if($GLOBALS["valid"] == false) { echo 'style="display: block;"'; }?>>
 				Invalid Credentials
 				</div>
 				<br/>

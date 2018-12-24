@@ -98,8 +98,8 @@ p {
 	webkit-box-shadow: 0 8px 6px -6px black;
 }
 
-#logincontainer * {
-	transform: skew(-2deg);
+#logincontainer *:not(.ignore){
+	transform: skew(-3deg);
 }
 
 .loginbuttons {
@@ -192,11 +192,12 @@ input {
 	height: 50px;
 	margin: auto;
 	max-width: 250px;
-	min-width: 185px;
+	min-width: 82px;
 	moz-box-shadow: 0 8px 6px -6px black;
 	transform: skew(-25deg);
 	webkit-box-shadow: 0 8px 6px -6px black;
 	width: calc(20% + 50px);
+	padding: 0 20px 0 20px;
 }
 
 #flag h1 {

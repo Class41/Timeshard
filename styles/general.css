@@ -45,7 +45,7 @@ input {
 	moz-box-shadow: 0 8px 6px -6px black;
 	transform: skew(-25deg);
 	webkit-box-shadow: 0 8px 6px -6px black;
-	width: calc(20% + 50px);
+	width: max-content;
 }
 
 .flag h1 {
@@ -94,8 +94,7 @@ input {
 	font-size: 1em;
 	height: 3em;
 	margin-top: 20px;
-	min-width: 71px;
-	width: 40%;
+	min-width: 80px;
 }
 
 .button:hover {
@@ -133,6 +132,17 @@ input {
 	text-align: center;
 }
 
+.logbutton {
+	border-color: #c0392b;
+	color: #c0392b;
+	transform: skew(-1deg)
+}
+
+.logbutton:hover
+{
+	border-color: #e74c3c;
+}
+
 .container {
 	background-color: #2c3e50;
 	box-shadow: 0 8px 6px -6px black;
@@ -145,7 +155,7 @@ input {
 	webkit-box-shadow: 0 8px 6px -6px black;
 }
 
-.container * {
+.container *:not(form) {
 	transform: skew(-3deg);
 }
 
@@ -161,4 +171,70 @@ input {
 
 ::placeholder {
     color: #95a5a6;
+}
+
+.containerlarge
+{
+	max-width: 1024px;
+	min-width: 150px;
+}
+
+.flaglarge
+{
+	width: 60%;
+	max-width: calc(1024px*.6);
+	min-width: max-content;
+	padding: 0 10px 0 10px;
+	display: block;
+}
+
+.limitdot
+{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#nav {
+	background-color: #2c3e50;
+	transform: skew(-25deg);
+	width: fit-content;
+	margin-left: -25px;
+	padding: 3px 5px 3px 8px;
+	box-shadow: 0 8px 6px -6px black;
+	position: absolute;
+	top: 50px;
+}
+
+.navitem {
+	display: inline-block;
+	height: 75px;
+	text-align: center;
+	align-items: center;
+	width: 5vw;
+	min-width: 80px;
+	max-width: 125px;
+	z-index: 10;
+	font-family: 'Source Sans Pro', sans-serif;
+	cursor: pointer;
+}
+
+.navitemcontenttext
+{
+	display: inline-block;
+	color: #ecf0f1;
+	font-weight: bold;
+	transform: skew(25deg);
+}
+
+.navitemcontenticon {
+	transform: skew(25deg);
+	fill: white;
+}
+
+.bgitemgreen {
+	background-color: #27ae60;
+}
+
+.bgitemred {
+	background-color: #c0392b;
 }

@@ -18,7 +18,7 @@
         `firstname` VARCHAR(60) NOT NULL , 
         `lastname` VARCHAR(60) NOT NULL , 
         `email` VARCHAR(60) NOT NULL ,
-        PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+        PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=latin1 COLLATE latin1_general_cs;";
 
     $db->query($sql);
 
@@ -30,7 +30,7 @@
         `type` VARCHAR(30) NOT NULL , 
         `userdata` int , 
         FOREIGN KEY (userdata) REFERENCES user(id),
-        PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+        PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=latin1 COLLATE latin1_general_cs;";
 
     $db->query($sql);
 
