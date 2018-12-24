@@ -1,50 +1,121 @@
-$(document).ready(function() {
-    $('#submit').click(function(e) {
-    // Initializing Variables With Form Element Values
-    var firstName = $('#firstName').val();
-    var lastName = $('#lastName').val(); 
-    var username = $('#username').val();
-    var email = $('#email').val();
-    // Initializing Variables With Regular Expressions
-    var name_regex = /^[a-zA-Z]+$/;
-    var email_regex = /^[w-.+]+@[a-zA-Z0-9.-]+.[a-zA-z0-9]{2,4}$/;
-    
-    if (firstName.length == 0) {
-    $('#p3').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
-    $("#firstName").focus();
-    return false;
-    }
-    // Validating Name Field.
-    else if (!firstName.match(name_regex) || firstName.length == 0) {
-    $('#p3').text("* For your name please use alphabets only *"); // This Segment Displays The Validation Rule For Name
-    $("#firstName").focus();
-    return false;
-    }
+<link rel="stylesheet" type="text/css" href="../../styles/login.css" />
 
-    if (lastName.length == 0) {
-        $('#p3').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
-        $("#lastName").focus();
-        return false;
+myFunction(value1)
+{
+
+value1 = true; 
+const emailReg = /^[A-Za-z0-9]+@([A-Za-z0-9]+\.)+[A-Za-z0-9]+/m;
+var name_regex = /^[a-zA-Z]/;
+var usernameReg = /^{A-Za-z0-9]/;
+const pwreg1 = /[A-Z]/m;
+const pwreg2 = /[a-z]/m;
+const pwreg3 = /[0-9]/m;
+const pwreg4 = /[~`!#$%\^&*+=\[\]\\';,\/{}|\:<>\?]/m;
+const pwreg5 = /.{8,64}/m;
+
+
+
+function firstNameCheck() {
+    var field = document.getElementById("firstName");
+    var result = name_regex.exec(field.value);
+
+    if (result != null) {
+        field.style.borderBottom = "solid green 2px";
+    }
+    else {
+        field.style.borderBottom = "shake";
+        value1 = false
+    }
+}
+
+
+function lastNameCheck() {
+    var field = document.getElementById("lastName");
+    var result = name_regex.exec(field.value);
+
+    if (result != null) {
+        field.style.borderBottom = "solid green 2px";
+    }
+    else {
+        field.style.borderBottom = "shake";
+        value1 = false; 
+    }
+}
+
+function emailCheck() {
+    var field = document.getElementById("email");
+    var result = emailReg.exec(field.value);
+
+    if (result != null) {
+        field.style.borderBottom = "solid green 2px";
+    }
+    else {
+        field.style.borderBottom = "shake";
+        value1 = false; 
+    }
+}
+
+function userNameCheck() {
+    var field = document.getElementById("username");
+    var result = emailReg.exec(field.value);
+
+    if (result != null) {
+        field.style.borderBottom = "solid green 2px";
+    }
+    else {
+        field.style.borderBottom = "shake";
+        value = false; 
+    }
+}
+
+function passwordCheck() {
+    var field = document.getElementById("passsword");
+    var result = pwreg5.exec(field.value);
+
+    field.style.borderBottom = "shake";
+    value1 = false; 
+    if (result != null) {
+        result = pwreg1.exec(field.value)
+        if (result != null) {
+            result = pwreg2.exec(field.value)
+            if (result != null) {
+                result = pwreg3.exec(field.value)
+                if (result != null) {
+                    result = pwreg4.exec(field.value)
+                    if (result != null) {
+                        value1 = true;
+                        field.style.borderBottom = "solid green 2px";
+                    
+                    }
+                }
+            }
         }
-        // Validating Name Field.
-        else if (!lastname.match(name_regex) || firstname.length == 0) {
-        $('#p3').text("* For your name please use alphabets only *"); // This Segment Displays The Validation Rule For Name
-        $("#lastName").focus();
-        return false;
-        }
-
-    // Validating Username Field.
-    else if (!(username.length >= 6 && username.length <= 8) || username.length == 0) {
-    $('#p3').text("* Please enter between 6 and 8 characters *"); // This Segment Displays The Validation Rule For Username
-    $("#username").focus();
-    return false;
-    }
-    // Validating Email Field.
-    else if (!email.match(email_regex) || email.length == 0) {
-    $('#p3').text("* Please enter a valid email address *"); // This Segment Displays The Validation Rule For Email
-    $("#email").focus();
-    return false;
     }
 
-    });
-    });
+    passwordRepeatCheck();
+}
+
+
+
+function passwordRepeatCheck() {
+    var field1 = document.getElementById("password");
+    var field2 = document.getElementById("password2");
+    if (field1.value != field2.value) {
+        field2.style.borderBottom = "shake";
+        value1 = false; 
+    }
+    else {
+        field2.style.borderBottom = "solid green 2px";
+    }
+
+}
+
+
+passwordCheck();
+firstNameCheck(); 
+lastNameCheck(); 
+emailCheck(); 
+userNameCheck(); 
+
+return value1; 
+}
