@@ -39,7 +39,7 @@ if($_SESSION["type"] != "employer" && $_SESSION["type"] != "hybrid")
         </div>
         <div id="pagecontent">
             <div class="flag flaggreen containerheaderflag flaglarge"> 
-                <h1 class="textneutral">Select</h1>
+                <h1 class="textneutral">Session</h1>
             </div>
             <div class="container containerlarge">
                 <h3 class="limitdot">Logged In: <?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>               
