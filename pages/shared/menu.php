@@ -25,6 +25,12 @@
 </head>
 
 <body>
+    <div id="nav">
+        <div class="navitem bgitemred" onclick="Logout(); window.location.assign('../../index.php');">
+            <p class="navitemcontenttext">Logout</p>
+            <img class="navitemcontenticon" src="../../img/logoff.svg"/>
+        </div>
+    </div>
     <div>
         <div id="header">
             <img id="logo" src="../../img/logo.png" />
@@ -38,9 +44,6 @@
             <h3 class="limitdot">Logged In: <?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>               
             <input class="button buttongreen selectionbutton" type="button" value="Employer" onclick="window.location.assign('../employer/home.php');"> <br />
             <input class="button buttongreen selectionbutton" type="button" value="Employee" onclick="window.location.assign('../employee/home.php');"> <br />
-            <form method="POST">
-                <input class="button buttongreen selectionbutton logbutton" type="submit" value="Logout" onclick="Logout(); window.location.assign('../../index.php');"> <br />
-            </form>
         </div>
     </div>
     </div>
