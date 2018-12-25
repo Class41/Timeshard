@@ -178,7 +178,7 @@ input {
 	webkit-box-shadow: 0 8px 6px -6px black;
 }
 
-.container *:not(form) {
+.container *:not(form, .ignore) {
 	transform: skew(-3deg);
 }
 
@@ -284,4 +284,9 @@ input {
 
 .bgitemred:hover {
 	background-color: #e74c3c;
+}
+
+.selectioncontainer {
+	width: 30%;
+	display: inline-block;
 }
