@@ -11,7 +11,9 @@
 
     $sql = "CREATE DATABASE IF NOT EXISTS timeshard;";
     $db->query($sql);
-    echo mysqli_error($db);
+
+    $sql = "CREATE DATABASE IF NOT EXISTS timeshard_timetables;";
+    $db->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`user` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 

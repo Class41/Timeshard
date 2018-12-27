@@ -29,7 +29,7 @@
     <div id="nav">
         <div class="navitem bgitemred" onclick="Logout(); window.location.assign('../../index.php');">
             <p class="navitemcontenttext">Logout</p>
-            <img class="navitemcontenticon" src="../../img/logoff.svg"/>
+            <img class="navitemcontenticon" src="../../img/logoff.png"/>
         </div>
     </div>
     <div>

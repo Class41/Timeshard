@@ -18,18 +18,24 @@ if($_SESSION["type"] != "employer" && $_SESSION["type"] != "hybrid")
     </head>
 
     <body>
-         <div id="nav">
-            <div class="navitem bgitemred" onclick="Logout(); window.location.assign('../../index.php');">
-                <p class="navitemcontenttext">Logout</p>
-                <img class="navitemcontenticon" src="../../img/logoff.svg"/>
+        <div id="nav">
+            <div class="navitem bgitemneutral" onclick="window.location.assign('./timeshard.php');">
+                <p class="navitemcontenttext">Shard</p>
+                <img class="navitemcontenticon" src="../../img/myshard.png" />
             </div>
-            <?php if($_SESSION["type"] == "hybrid") {?> 
-            
+
+            <?php if($_SESSION["type"] == "hybrid") {?>
+
             <div class="navitem bgitemgreen" onclick="window.location.assign('../shared/menu.php');">
                 <p class="navitemcontenttext">Menu</p>
-                <img class="navitemcontenticon" src="../../img/return.svg"/>
+                <img class="navitemcontenticon" src="../../img/return.png" />
             </div>
             <?php }?>
+
+            <div class="navitem bgitemred" onclick="Logout(); window.location.assign('../../index.php');">
+                <p class="navitemcontenttext">Logout</p>
+                <img class="navitemcontenticon" src="../../img/logoff.png" />
+            </div>
         </div>
         
         <div>
