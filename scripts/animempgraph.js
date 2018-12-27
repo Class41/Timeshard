@@ -1,5 +1,5 @@
 var targetHours = 40;
-var currentHours = 32;
+var currentHours = 41;
 
 function setCurrentHours(val) 
 {
@@ -39,9 +39,9 @@ var bar = new ProgressBar.SemiCircle(document.getElementById("empgraph"), {
         bar.setText('');
         } else {
             if(currentHours > targetHours)
-                bar.setText(currentHours + "/" + targetHours);
+                bar.setText(currentHours + "/" + targetHours + " Hours");
             else
-                bar.setText(value + "/" + targetHours);
+                bar.setText(value + "/" + targetHours + " Hours");
         }
 
         bar.text.style.color = state.color;
@@ -49,7 +49,7 @@ var bar = new ProgressBar.SemiCircle(document.getElementById("empgraph"), {
     });
 
 bar.text.style.fontFamily = '"Muli", sans-serif';
-bar.text.style.fontSize = '2rem';
+bar.text.style.fontSize = '1.35rem';
 
 function CalcBar()
 {

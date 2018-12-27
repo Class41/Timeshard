@@ -45,17 +45,17 @@ if($_SESSION["type"] != "employee" && $_SESSION["type"] != "hybrid")
             <h1 class="textneutral">Summary</h1>
         </div>
         <div class="container containerlarge">
-        
-            <div class="subcontainer">
-            
-                <h1>Welcome Back, <?php echo $_SESSION["username"] ?></h1>
-                <h4>(<?php echo $_SESSION["firstname"] ?>, <?php echo $_SESSION["firstname"] ?>)</h4>
-            </div>
+            <div>
+                <div class="subcontainer">         
+                    <h1 class="limitdot textgreen">Welcome Back</h1>
+                    <h4 class="limitdot"><?php echo $_SESSION["firstname"] . " " . $_SESSION["firstname"] ?></h4>
+                </div>
 
-            <div class="subcontainer">
-            <h2>Target Time</h2>
-            <div id="empgraph" class="ignore"></div>
-            <script src="../../scripts/animempgraph.js"></script>
+                <div class="subcontainer">
+                    <h2>Your Target Time</h2>
+                    <div id="empgraph" class="ignore"></div>
+                    <script src="../../scripts/animempgraph.js"></script>
+                </div>
             </div>
         </div>
 

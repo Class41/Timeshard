@@ -42,9 +42,11 @@
             <h1 class="textneutral">Select</h1>
         </div>
         <div class="container">
-            <h3 class="limitdot">Logged In: <?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>               
-            <input class="button buttongreen selectionbutton" type="button" value="Employer" onclick="window.location.assign('../employer/home.php');"> <br />
-            <input class="button buttongreen selectionbutton" type="button" value="Employee" onclick="window.location.assign('../employee/home.php');"> <br />
+            <div>
+                <h3 class="limitdot">Logged In: <?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>               
+                <input class="button buttongreen selectionbutton" type="button" value="Employer" onclick="window.location.assign('../employer/home.php');"> <br />
+                <input class="button buttongreen selectionbutton" type="button" value="Employee" onclick="window.location.assign('../employee/home.php');"> <br />
+            </div>
         </div>
     </div>
     </div>

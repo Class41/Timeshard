@@ -208,14 +208,17 @@ input {
 	webkit-box-shadow: 0 8px 6px -6px black;
 }
 
-.container *:not(form):not(svg):not(path):not(.ignore) {
+.container {
 	transform: skew(-3deg);
 }
 
+.container div {
+	transform: skew(3deg);
+}
 
 .containerheaderflag {
-	margin-bottom: -25px;
 	position: relative;
+	margin-bottom: -25px;
 	z-index: 5;
 }
 
@@ -323,7 +326,7 @@ input {
 }
 
 .subcontainer {
-	display: inline-block;
+	display: inline-grid;
 	width: 48%;
 	min-width: 276px;
 	margin-bottom: 60px;
@@ -331,17 +334,18 @@ input {
 
 #empgraph
 {
-	width: 200px;
+	width: 250px;
 	height: 100px;
 	margin: auto;
 	user-select: none;
+	transform: skew(-3deg);
 }
 
 @media only screen and (max-width: 1024px)
 {
 
 	#pagecontent {
-		margin: 50px 65px 100px 25px;
+		margin: 75px 65px 100px 25px;
 	}
 
 	.container {
@@ -351,5 +355,9 @@ input {
 	.subcontainer {
 		display: block;
 		width: 100%;
+	}
+
+	.containerheaderflag {
+		margin-left: 20vw;
 	}
 }

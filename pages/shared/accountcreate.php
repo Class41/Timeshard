@@ -28,15 +28,19 @@
         <div class="flag flaggreen containerheaderflag"> 
             <h1 class="textneutral">Register</h1>
         </div>
-        <form novalidate id="register" class="container" method="POST" action="accountcreate.php";>
-            <input class="formitem" type="text" name="username" placeholder="Username" onfocusout="userNameCheck()" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /> <br />
-			<input class="formitem" type="password" name="password" placeholder="Password"/> <br />
-			<input class="formitem" type="password" name="password2" placeholder="Repeat Password"/> <br />
-            <input class="formitem" type="text" name="firstName" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?> /><br />
-            <input class="formitem" type="text" name="lastName" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?> /><br />
-            <input class="formitem" type="email" name="email" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> /><br />
-            <input class="button buttongreen" type="submit" value="Create"> <br />
-        </form>
+    <div id="register" class="container">
+        <div>
+            <form novalidate id="register" method="POST" action="accountcreate.php";>
+                <input class="formitem" type="text" name="username" placeholder="Username" onfocusout="userNameCheck()" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /> <br />
+                <input class="formitem" type="password" name="password" placeholder="Password"/> <br />
+                <input class="formitem" type="password" name="password2" placeholder="Repeat Password"/> <br />
+                <input class="formitem" type="text" name="firstName" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?> /><br />
+                <input class="formitem" type="text" name="lastName" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?> /><br />
+                <input class="formitem" type="email" name="email" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> /><br />
+                <input class="button buttongreen" type="submit" value="Create"> <br />
+            </form>
+        </div>
+    </div>
 
         
         
