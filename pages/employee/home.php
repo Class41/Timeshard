@@ -54,7 +54,7 @@ if($_SESSION["type"] != "employee" && $_SESSION["type"] != "hybrid")
             <div>
                 <div class="subcontainer">         
                     <h1 class="limitdot textgreen">Welcome Back</h1>
-                    <h4 class="limitdot"><?php echo $_SESSION["firstname"] . " " . $_SESSION["firstname"] ?></h4>
+                    <h4 class="limitdot"><?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"] ?></h4>
                 </div>
 
                 <div class="subcontainer">
