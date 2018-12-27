@@ -5,7 +5,36 @@ body {
 	padding: 0;
 }
 
+h1 {
+	color: #ecf0f1;
+	display: block;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
+h2 {
+	color: #ecf0f1;
+	display: block;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center;
+	letter-spacing: 2px;
+}
+
 h3 {
+	color: #ecf0f1;
+	display: block;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin: auto;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+h4 {
 	color: #ecf0f1;
 	display: block;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -170,6 +199,7 @@ input {
 	background-color: #2c3e50;
 	box-shadow: 0 8px 6px -6px black;
 	margin: auto;
+	margin-bottom: 75px;
 	max-width: 350px;
 	min-width: 150px;
 	moz-box-shadow: 0 8px 6px -6px black;
@@ -178,9 +208,10 @@ input {
 	webkit-box-shadow: 0 8px 6px -6px black;
 }
 
-.container *:not(form, .ignore) {
+.container *:not(form):not(svg):not(path):not(.ignore) {
 	transform: skew(-3deg);
 }
+
 
 .containerheaderflag {
 	margin-bottom: -25px;
@@ -289,4 +320,36 @@ input {
 .selectioncontainer {
 	width: 30%;
 	display: inline-block;
+}
+
+.subcontainer {
+	display: inline-block;
+	width: 48%;
+	min-width: 276px;
+	margin-bottom: 60px;
+}
+
+#empgraph
+{
+	width: 200px;
+	height: 100px;
+	margin: auto;
+	user-select: none;
+}
+
+@media only screen and (max-width: 1024px)
+{
+
+	#pagecontent {
+		margin: 50px 65px 100px 25px;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	.subcontainer {
+		display: block;
+		width: 100%;
+	}
 }

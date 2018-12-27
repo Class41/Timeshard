@@ -16,6 +16,7 @@ if($_SESSION["type"] != "employee" && $_SESSION["type"] != "hybrid")
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <title>Timeshard - <?php echo $_SESSION["firstname"][0] . ". " . $_SESSION["lastname"][0];?></title>
     <script src="../../scripts/logout.js"></script>
+    <script src="../../scripts/deps/progressbar.js"></script>
 </head>
 
 <body>
@@ -41,21 +42,26 @@ if($_SESSION["type"] != "employee" && $_SESSION["type"] != "hybrid")
     <div id="pagecontent">
 
         <div class="flag flaggreen containerheaderflag flaglarge">
-            <h1 class="textneutral">Tasks</h1>
+            <h1 class="textneutral">Summary</h1>
         </div>
         <div class="container containerlarge">
-            <div class="selectioncontainer ignore">
-                <select>
-                    <option DISABLED SELECTED></option>
-                    <option>test</option>
-                </select>
+        
+            <div class="subcontainer">
+            
+                <h1>Welcome Back, <?php echo $_SESSION["username"] ?></h1>
+                <h4>(<?php echo $_SESSION["firstname"] ?>, <?php echo $_SESSION["firstname"] ?>)</h4>
+            </div>
 
-                <input class="button buttongreen selectionbutton" type="button" value="Modify"/>
+            <div class="subcontainer">
+            <h2>Target Time</h2>
+            <div id="empgraph" class="ignore"></div>
+            <script src="../../scripts/animempgraph.js"></script>
             </div>
         </div>
 
         <div class="flag flaggreen containerheaderflag flaglarge">
             <h1 class="textneutral">Recent</h1>
+
         </div>
         <div class="container containerlarge">
 
