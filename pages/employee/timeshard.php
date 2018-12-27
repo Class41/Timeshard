@@ -5,6 +5,7 @@ session_start();
 
 if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["type"] == "hybrid"))
 {
+
 ?>
 
 <html>
@@ -19,8 +20,8 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
 
 <body>
     <div id="nav">
-        <div class="navitem bgitemneutral" onclick="window.location.assign('./timeshard.php');">
-            <p class="navitemcontenttext">Shard</p>
+        <div class="navitem bgitemneutral" onclick="window.location.assign('./home.php');">
+            <p class="navitemcontenttext">Home</p>
             <img class="navitemcontenticon" src="../../img/myshard.png" />
         </div>
 
@@ -46,13 +47,43 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <div id="pagecontent">
 
         <div class="flag flaggreen containerheaderflag flaglarge">
-            <h1 class="textneutral">Summary</h1>
+            <h1 class="textneutral">Task</h1>
         </div>
         <div class="container containerlarge">
             <div>
-                <div class="subcontainer">         
-                    <h1 class="limitdot textgreen">Welcome Back</h1>
-                    <h4 class="limitdot"><?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"] ?></h4>
+                <div class="subcontainer"> 
+                    <?php
+                        $server = "localhost";
+                        $user = "root";
+                        $password = "";
+                    
+                        $db = new mysqli($server, $user, $password);
+                    
+                        if ($db->connect_error) {
+                            die("Connection failed: " . $db->connect_error);
+                        }
+
+                        if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE type=?"))
+                        {
+                            $sql->bind_param("s", $_SESSION["type"]);
+                            $sql->execute();
+
+                            $result = $sql->get_result();
+                        }
+                    ?>        
+                    <select name="taskselection">
+                        <option selected disabled></option>
+                        <?php 
+                            $row = $result->fetch_assoc();
+                            $optionarray = json_decode($row["value"], true);
+
+                            for($i = 0; $i < sizeof($optionarray); $i++)
+                            {
+                                echo "<option value=\"$optionarray[$i]\">" . $optionarray[$i] . "</option>";
+                            }
+                            
+                        ?>
+                    </select>
                 </div>
 
                 <div class="subcontainer">
@@ -64,7 +95,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         </div>
 
         <div class="flag flaggreen containerheaderflag flaglarge">
-            <h1 class="textneutral">Recent</h1>
+            <h1 class="textneutral">Session</h1>
         </div>
         <div class="container containerlarge">
             <div>
@@ -99,37 +130,6 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             <td>Stocked isles 1-3</td>
                             <td>3h15m</td>
                          </tr>
-
-                    </table>
-                </div>
-        </div>
-
-        <div class="flag flaggreen containerheaderflag flaglarge">
-            <h1 class="textneutral">History</h1>
-        </div>
-        <div class="container containerlarge">
-                <div>
-                    <table>
-                        <tr>
-                            <th>Time Period</th>
-                            <th>Target Met</th>
-                            <th>Duration</th>
-                        </tr>
-                        <tr>
-                            <td>7 days</td>
-                            <td>Yes</td>
-                            <td>42/40 hours</td>
-                       </tr>
-                       <tr>
-                            <td>30 days</td>
-                            <td>Yes</td>
-                            <td>176/171 hours</td>
-                       </tr>
-                       <tr>
-                            <td>90 days</td>
-                            <td>No</td>
-                            <td>480/514 hours</td>
-                       </tr>
                     </table>
                 </div>
         </div>

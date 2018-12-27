@@ -254,12 +254,12 @@ input {
 
 @keyframes navloadin {
 	from {transform: translate(-100px, -100px) skew(10deg) rotate(-100deg);}
-	to {transform: translate(0) skew(10deg) rotate(15deg);}
+	to {transform: translate(0) skew(10deg) rotate(10deg);}
 }
 
 #nav {
 	background-color: #2c3e50;
-	transform: skew(10deg) rotate(15deg);
+	transform: skew(10deg) rotate(10deg);
 	height: fit-content;
 	margin-left: -20px;
 	padding: 3px 3px 3px 10px;
@@ -289,13 +289,13 @@ input {
 	display: inline-block;
 	color: #ecf0f1;
 	font-weight: bold;
-	transform: skew(-10deg) rotate(-15deg);
+	transform: skew(-10deg) rotate(-10deg);
 	position: relative;
 	left: 20px;
 }
 
 .navitemcontenticon {
-	transform: skew(-10deg) rotate(-15deg);
+	transform: skew(-10deg) rotate(-10deg);
 	fill: white;
 	width: 26px;
 	height: 26px;
@@ -379,6 +379,20 @@ th {
 	color:#34495e;
 	background-color: #27ae60;
 
+}
+
+select {
+	background-color: #34495e;
+	font-family: 'Muli', sans-serif; 
+	color: #2ecc71;
+	font-size: 1.5em;
+	height: 2em;
+	padding: 10px;
+}
+
+option {
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #ecf0f1;
 }
 
 @media only screen and (max-width: 1024px)

@@ -15,6 +15,16 @@
     $sql = "CREATE DATABASE IF NOT EXISTS timeshard_timetables;";
     $db->query($sql);
 
+    $sql = "CREATE DATABASE IF NOT EXISTS timeshard_settings;";
+    $db->query($sql);
+
+    $sql = "CREATE TABLE IF NOT EXISTS `timeshard_settings`.`employee_options` ( 
+        `id` INT NOT NULL AUTO_INCREMENT , 
+        `type` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL , 
+        `value` TEXT NOT NULL ,
+         PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $db->query($sql);
+
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`user` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 
         `firstname` VARCHAR(60) NOT NULL , 

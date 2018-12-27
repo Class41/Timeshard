@@ -43,7 +43,7 @@
         </div>
         <div class="container">
             <div>
-                <h3 class="limitdot">Logged In: <?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>               
+                <h3 class="limitdot"><?php echo $_SESSION["firstname"] . " " . $_SESSION["lastname"];?></h3>               
                 <input class="button buttongreen selectionbutton" type="button" value="Employer" onclick="window.location.assign('../employer/home.php');"> <br />
                 <input class="button buttongreen selectionbutton" type="button" value="Employee" onclick="window.location.assign('../employee/home.php');"> <br />
             </div>

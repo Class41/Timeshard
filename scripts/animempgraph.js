@@ -39,9 +39,9 @@ var bar = new ProgressBar.SemiCircle(document.getElementById("empgraph"), {
         bar.setText('');
         } else {
             if(currentHours > targetHours)
-                bar.setText(currentHours + "/" + targetHours + " Hours");
+                bar.setText(currentHours + "/" + targetHours + " hours");
             else
-                bar.setText(value + "/" + targetHours + " Hours");
+                bar.setText(value + "/" + targetHours + " hours");
         }
 
         bar.text.style.color = state.color;
