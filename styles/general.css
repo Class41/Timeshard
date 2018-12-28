@@ -88,6 +88,20 @@ input {
 	width: 70%;
 }
 
+.fullwidthinput {
+	width: 100%;
+	margin: 30px 0 0 0;
+	height: 4em;
+	font-size: 1em;
+	transition: .3s;
+	word-break: break-word;
+}
+
+.fullwidthinput:focus {
+	width: 95%;
+	border-color: #2ecc71;
+}
+
 .flag {
 	box-shadow: 0 8px 6px -6px black;
 	height: 50px;
@@ -170,9 +184,12 @@ input {
 	color: #27ae60;
 }
 
-.buttonplain {
-	border: 2px solid #2c3e50;
-	color: #2c3e50;
+.buttonround {
+	border-radius: 50%;
+	height: 14em;
+	width: 14em;
+	margin: 10px;
+	margin: auto;
 }
 
 #pagecontent {
@@ -185,10 +202,13 @@ input {
 	text-align: center;
 }
 
-.logbutton {
-	border-color: #c0392b;
+.buttonroundred {
+	border: #c0392b 2px solid;
 	color: #c0392b;
-	transform: skew(-1deg)
+}
+
+.buttonroundred:hover {
+	border-color: #e74c3c;
 }
 
 .logbutton:hover
@@ -338,7 +358,6 @@ input {
 	display: inline-grid;
 	width: 48%;
 	min-width: 276px;
-	margin-bottom: 60px;
 }
 
 #empgraph
@@ -348,6 +367,7 @@ input {
 	margin: auto;
 	user-select: none;
 	transform: skew(0deg);
+	margin-bottom: 60px;
 }
 
 table{
@@ -385,9 +405,14 @@ select {
 	background-color: #34495e;
 	font-family: 'Muli', sans-serif; 
 	color: #2ecc71;
-	font-size: 1.5em;
+	font-size: 1.75em;
 	height: 2em;
 	padding: 10px;
+	transition: .3s;
+}
+
+select:focus {
+	box-shadow: inset 0 0 0 2px #27ae60;
 }
 
 option {
@@ -395,10 +420,20 @@ option {
 	color: #ecf0f1;
 }
 
+sub {
+	color: #ecf0f1;
+	font-family: 'Source Sans Pro', sans-serif;
+	user-select: none;
+}
+
+.floatleft {
+	float: left;
+}
+
 @media only screen and (max-width: 1024px)
 {
 	tr:hover {
-		transform: scale(1.25);
+		transform: scale(1.15);
 	}
 
 	#pagecontent {
@@ -407,6 +442,7 @@ option {
 
 	.container {
 		width: 100%;
+		padding: auto;
 	}
 
 	.subcontainer {
@@ -416,5 +452,10 @@ option {
 
 	.containerheaderflag {
 		margin-left: 20vw;
+	}
+
+	.subgrid {
+		display: inline-grid !important;
+		margin-top: 60px;
 	}
 }

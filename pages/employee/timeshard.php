@@ -15,6 +15,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <title>Timeshard - <?php echo $_SESSION["firstname"][0] . ". " . $_SESSION["lastname"][0];?></title>
     <script src="../../scripts/logout.js"></script>
+    <script src="../../scripts/shardcontrol.js"></script>
     <script src="../../scripts/deps/progressbar.js"></script>
 </head>
 
@@ -51,7 +52,8 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         </div>
         <div class="container containerlarge">
             <div>
-                <div class="subcontainer"> 
+                <div class="subcontainer subgrid floatleft"> 
+                    <h1>New Shard</h1>
                     <?php
                         $server = "localhost";
                         $user = "root";
@@ -71,7 +73,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             $result = $sql->get_result();
                         }
                     ?>        
-                    <select name="taskselection">
+                    <select id="taskselector">
                         <option selected disabled></option>
                         <?php 
                             $row = $result->fetch_assoc();
@@ -84,12 +86,13 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             
                         ?>
                     </select>
+                    
+                    <input id="shardmemo" class="fullwidthinput" type="text" placeholder="memo (optional)" maxlength="100" oninput="updatecounter(this);" />
+                    <sub id="inputcount">0/100</sub>
                 </div>
 
-                <div class="subcontainer">
-                    <h2>Your Target Time</h2>
-                    <div id="empgraph" class="ignore"></div>
-                    <script src="../../scripts/animempgraph.js"></script>
+                <div class="subcontainer subgrid">
+                    <input id="shardbutton" class="button buttongreen buttonround" type="button" onclick="toggleshard(this);" value="Begin"/>
                 </div>
             </div>
         </div>
