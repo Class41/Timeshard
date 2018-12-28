@@ -14,7 +14,7 @@ function UserNameCheck() {
     }
 }
 
-var name_regex = /^[a-zA-Z]{1,30}/;
+var name_regex = /^[a-zA-Z]{1,30}$/;
 
 function FirstNameCheck() {
     var field = document.getElementsByName("firstName")[0];
@@ -66,7 +66,7 @@ const pwreg1 = /[A-Z]/m;
 const pwreg2 = /[a-z]/m;
 const pwreg3 = /[0-9]/m;
 const pwreg4 = /[~`!#$%\^&*+=\[\]\\';,\/{}|\:<>\?]/m;
-const pwreg5 = /.{8,96}/m;
+const pwreg5 = /^.{8,96}$/m;
 
 function PasswordCheck() {
     var field = document.getElementsByName("password")[0];
