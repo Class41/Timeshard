@@ -92,11 +92,11 @@ function PasswordRepeatCheck() {
     var field2 = document.getElementsByName("password2")[0];
     if (field1.value != field2.value) {
         field2.style.borderColor = "#c0392b";
-        return true; 
+        return false; 
     }
     else {
         field2.style.borderColor = "#2ecc71";
-        return false;
+        return true;
     }
 }
 
