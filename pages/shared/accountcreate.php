@@ -18,7 +18,7 @@
 		}
 ?>
 
-<body>
+<body onload="RegisterButtonLock();">
     <div>
         <div id="header">
             <img id="logo" src="../../img/logo.png" />
@@ -31,13 +31,13 @@
     <div id="register" class="container">
         <div>
             <form novalidate id="register" method="POST" action="accountcreate.php";>
-                <input class="formitem" type="text" name="username" placeholder="Username" onfocusout="userNameCheck()" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /> <br />
-                <input class="formitem" type="password" name="password" onfocusout="passwordCheck()" placeholder="Password"/> <br />
-                <input class="formitem" type="password" name="password2" onfocusout="passwordRepeatCheck()" placeholder="Repeat Password"/> <br />
-                <input class="formitem" type="text" name="firstName"onfocusout="firstNameCheck()" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?> /><br />
-                <input class="formitem" type="text" name="lastName" onfocusout="lastNameCheck()" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?> /><br />
-                <input class="formitem" type="email" name="email" onfocusout="emailCheck()" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> /><br />
-                <input class="button buttongreen" type="submit" value="Create"> <br />
+                <input class="formitem" type="text" name="username" placeholder="Username" oninput="UserNameCheck(); RegisterButtonLock();" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /> <br />
+                <input class="formitem" type="password" name="password" oninput="PasswordCheck(); RegisterButtonLock();" placeholder="Password"/> <br />
+                <input class="formitem" type="password" name="password2" oninput="PasswordRepeatCheck(); RegisterButtonLock();" placeholder="Repeat Password"/> <br />
+                <input class="formitem" type="text" name="firstName" oninput="FirstNameCheck(); RegisterButtonLock();" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?> /><br />
+                <input class="formitem" type="text" name="lastName" oninput="LastNameCheck(); RegisterButtonLock();" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?> /><br />
+                <input class="formitem" type="email" name="email" oninput="EmailCheck(); RegisterButtonLock();" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> /><br />
+                <input id="formsubmit" class="button buttongreen" type="submit" value="Create"> <br />
             </form>
         </div>
     </div>

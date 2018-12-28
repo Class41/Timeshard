@@ -184,6 +184,11 @@ input {
 	color: #27ae60;
 }
 
+.buttondisabled {
+	border: 2px solid #7f8c8d !important;
+	color: #7f8c8d !important;
+}
+
 .buttonround {
 	border-radius: 50%;
 	height: 14em;
