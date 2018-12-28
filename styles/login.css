@@ -200,6 +200,7 @@ input {
 	webkit-box-shadow: 0 8px 6px -6px black;
 	width: calc(20% + 50px);
 	padding: 0 20px 0 20px;
+	transition: .3s;
 }
 
 #flag h1 {
@@ -235,4 +236,35 @@ input {
 
 ::placeholder {
     color: #95a5a6;
+}
+
+@media only screen and (max-width: 1024px) {
+
+	#logincontainer {
+		max-width: none;
+		width: 100%;
+	}
+
+	#flag {
+			margin-left: 15px;
+			width: max-content;
+			padding-left: 25px;
+			padding-right: 25px;	
+	}
+
+	#body {
+			margin: 75px 65px 0 25px;	
+	}
+
+	#menulogo {
+		width: 150px;
+	}
+
+	input {
+		width: 85%;
+	}
+
+	#loginbutton {
+		max-width: 185px;
+	}
 }

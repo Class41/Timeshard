@@ -56,7 +56,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                 </div>
 
                 <div class="subcontainer">
-                    <h2>Your Target Time</h2>
+                    <h2>Current Goal</h2>
                     <div id="empgraph" class="ignore"></div>
                     <script src="../../scripts/animempgraph.js"></script>
                 </div>

@@ -4,7 +4,7 @@ function toggleshard(button) {
     selection = document.getElementById("taskselector");
     memoval = "";
 
-    if(selection.value.length > 0)
+    if(selection.value != "Select Task")
     {
         shardactive = !shardactive;
         if(shardactive)

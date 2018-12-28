@@ -53,7 +53,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         <div class="container containerlarge">
             <div>
                 <div class="subcontainer subgrid floatleft"> 
-                    <h1>New Shard</h1>
+                    <h3>New Shard</h3>
                     <?php
                         $server = "localhost";
                         $user = "root";
@@ -74,7 +74,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                         }
                     ?>        
                     <select id="taskselector">
-                        <option selected disabled></option>
+                        <option selected disabled>Select Task</option>
                         <?php 
                             $row = $result->fetch_assoc();
                             $optionarray = json_decode($row["value"], true);
