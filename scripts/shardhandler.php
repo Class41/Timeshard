@@ -30,6 +30,12 @@ if(isset($_POST["shard"]) && isset($_SESSION["type"]))
                     $sql->execute();
 
                     $_SESSION["shardid"] = $db->insert_id;
+
+                    if(!isset($_SESSION["sessionbeginindex"]))
+                    {
+                        $_SESSION["sessionbeginindex"] = $_SESSION["shardid"];
+                    }
+
                     echo "100";
                 }    
             } 
