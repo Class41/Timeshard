@@ -65,7 +65,7 @@ function FireShard(shard)
     xmlhttp.onreadystatechange = function() {
         console.log(xmlhttp.readyState);
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert(xmlhttp.responseText);
+            return xmlhttp.responseText;
         }
     }
 
