@@ -54,7 +54,7 @@
             `password` VARCHAR(96) NOT NULL , 
             `salt` VARCHAR(128) NOT NULL ,
             `type` VARCHAR(30) NOT NULL , 
-            `group` VARCHAR(30) NOT NULL DEFAULT 'default', 
+            `group` VARCHAR(30) NOT NULL DEFAULT 'none', 
             `userdata` int , 
             FOREIGN KEY (userdata) REFERENCES user(id),
             PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=latin1 COLLATE latin1_general_cs;";

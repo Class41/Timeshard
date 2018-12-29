@@ -65,7 +65,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             die("Connection failed: " . $db->connect_error);
                         }
 
-                        if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE 'group'=?"))
+                        if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE `group`=?;"))
                         {
                             $sql->bind_param("s", $_SESSION["group"]);
                             $sql->execute();
@@ -85,7 +85,6 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                                     echo "<option value=\"$optionarray[$i]\">" . $optionarray[$i] . "</option>";
                                 }
                             }
-                            
                         ?>
                     </select>
                     
