@@ -65,9 +65,9 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             die("Connection failed: " . $db->connect_error);
                         }
 
-                        if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE type=?"))
+                        if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE 'group'=?"))
                         {
-                            $sql->bind_param("s", $_SESSION["type"]);
+                            $sql->bind_param("s", $_SESSION["group"]);
                             $sql->execute();
 
                             $result = $sql->get_result();
@@ -76,12 +76,14 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                     <select id="taskselector">
                         <option selected disabled>Select Task</option>
                         <?php 
-                            $row = $result->fetch_assoc();
-                            $optionarray = json_decode($row["value"], true);
-
-                            for($i = 0; $i < sizeof($optionarray); $i++)
+                            if($row = $result->fetch_assoc())
                             {
-                                echo "<option value=\"$optionarray[$i]\">" . $optionarray[$i] . "</option>";
+                                $optionarray = json_decode($row["value"], true);
+
+                                for($i = 0; $i < sizeof($optionarray); $i++)
+                                {
+                                    echo "<option value=\"$optionarray[$i]\">" . $optionarray[$i] . "</option>";
+                                }
                             }
                             
                         ?>

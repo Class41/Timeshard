@@ -20,9 +20,12 @@
 
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard_settings`.`employee_options` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 
-        `type` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL , 
+        `group` VARCHAR(100) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL , 
         `value` TEXT NOT NULL ,
          PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+    $db->query($sql);
+
+    $sql = "INSERT INTO `timeshard_settings`.`employee_options`(`group`, `value`) VALUES ('default', '[]');";
     $db->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`user` ( 
@@ -31,7 +34,6 @@
         `lastname` VARCHAR(60) NOT NULL , 
         `email` VARCHAR(60) NOT NULL ,
         PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=latin1 COLLATE latin1_general_cs;";
-
     $db->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` ( 
@@ -40,10 +42,10 @@
         `password` VARCHAR(96) NOT NULL , 
         `salt` VARCHAR(128) NOT NULL ,
         `type` VARCHAR(30) NOT NULL , 
+        `group` VARCHAR(30) NOT NULL DEFAULT 'default', 
         `userdata` int , 
         FOREIGN KEY (userdata) REFERENCES user(id),
         PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=latin1 COLLATE latin1_general_cs;";
-
     $db->query($sql);
 
     if($sql = $db->prepare("SELECT * FROM timeshard.accounts WHERE username=?"))
@@ -65,6 +67,7 @@
             $_SESSION["username"] = $row["username"];
             $_SESSION["type"] = $row["type"];
             $_SESSION["id"] = $row["id"];
+            $_SESSION["group"] = $row["group"];
             
             if($sql = $db->prepare("SELECT * FROM timeshard.user 
                 INNER JOIN timeshard.accounts ON 

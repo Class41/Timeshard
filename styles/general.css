@@ -111,10 +111,12 @@ input {
     height: 50px;
     margin: auto;
     max-width: 250px;
-    min-width: 185px;
+    min-width: fit-content;
     moz-box-shadow: 0 8px 6px -6px black;
     transform: skew(-25deg);
     webkit-box-shadow: 0 8px 6px -6px black;
+    padding-left: 25px;
+    padding-right: 25px;
     width: max-content;
 }
 
@@ -209,6 +211,7 @@ input {
     display: block;
     margin: auto;
     text-align: center;
+    max-width: 275px;
 }
 
 .buttonroundred {
@@ -235,10 +238,6 @@ input {
     padding: 50px 20px 20px 20px;
     transform: skew(3deg);
     webkit-box-shadow: 0 8px 6px -6px black;
-}
-
-.container {
-    transform: skew(3deg);
 }
 
     .container div:not(.subcontainer) {
@@ -454,7 +453,7 @@ sub {
     .container {
         width: 100%;
 		padding: auto;
-		max-width: none;
+        max-width: none;
     }
 
     .subcontainer {
@@ -464,10 +463,7 @@ sub {
 	
 	.containerheaderflag {
 		margin-left: 15px;
-		width: max-content;
-		padding-left: 25px;
-		padding-right: 25px;
-	}
+    }
 
     .subgrid {
         display: inline-grid !important;

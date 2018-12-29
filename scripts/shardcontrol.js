@@ -2,7 +2,13 @@ var shardactive = false;
 
 function toggleshard(button) {
     selection = document.getElementById("taskselector");
-    memoval = "";
+
+    shardobj = {
+        conntype: -1,
+        shardtype: "",
+        memoval: "",
+        timeval: null
+    }
 
     if(selection.value != "Select Task")
     {
