@@ -88,12 +88,12 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                         ?>
                     </select>
                     
-                    <input id="shardmemo" class="fullwidthinput" type="text" placeholder="memo (optional)" maxlength="100" oninput="updatecounter(this);" />
+                    <input id="shardmemo" class="fullwidthinput" type="text" placeholder="memo (optional)" maxlength="100" oninput="UpdateCounter(this);" />
                     <sub id="inputcount">0/100</sub>
                 </div>
 
                 <div class="subcontainer subgrid">
-                    <input id="shardbutton" class="button buttongreen buttonround" type="button" onclick="toggleshard(this);" value="Begin"/>
+                    <input id="shardbutton" class="button buttongreen buttonround" type="button" onclick="ToggleShard(this);" value="Begin"/>
                 </div>
             </div>
         </div>
