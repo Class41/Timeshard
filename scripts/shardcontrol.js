@@ -1,44 +1,64 @@
 var shardactive = false;
 
-function ToggleShard(button) {
-    selection = document.getElementById("taskselector");
+shardobj = {
+    conntype: -1,
+    shardtype: "",
+    memoval: ""
+}
 
-    shardobj = {
-        conntype: -1,
-        shardtype: "",
-        memoval: ""
-    }
+var selection, button;
 
+function GetShardStatus()
+{
+    this.selection = document.getElementById("taskselector");
+    this.button = document.getElementById("shardbutton");
+
+    shardobj.conntype = 2;
+    FireShard(shardobj);
+}
+
+function SetShardActive()
+{
+    button.value = "End";
+    button.classList.add("buttonroundred");
+    button.classList.remove("buttongreen");
+
+    selection.disabled = true;
+
+    shardactive = true;
+}
+
+function SetShardInactive()
+{
+    button.value = "Begin";
+    button.classList.add("buttongreen");
+    button.classList.remove("buttonroundred");
+
+    selection.disabled = false;
+
+    shardactive = false;
+}
+
+function ToggleShard() 
+{
     if(selection.value != "Select Task")
     {
-        shardactive = !shardactive;
-        if(shardactive)
+        if(!shardactive)
         {
-            button.value = "End";
-
-            button.classList.add("buttonroundred");
-            button.classList.remove("buttongreen");
-
+            
+            SetShardActive();
             shardobj.conntype = 0;
             shardobj.shardtype = selection.value;
             FireShard(shardobj);
-
-            selection.disabled = true;
         }
         else
         {
-            button.value = "Begin";
-            button.classList.add("buttongreen");
-            button.classList.remove("buttonroundred");
-
-            selection.disabled = false;
-
+            SetShardInactive();
             memo = document.getElementById("shardmemo");
             shardobj.conntype = 1;
             shardobj.memoval = memo.value;
 
             FireShard(shardobj);
-
             memo.value = "";
             UpdateCounter(memo);
         }
@@ -63,9 +83,29 @@ function FireShard(shard)
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xmlhttp.onreadystatechange = function() {
-        console.log(xmlhttp.readyState);
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            return xmlhttp.responseText;
+            console.log(JSON.parse(xmlhttp.responseText));
+            if(response = JSON.parse(xmlhttp.responseText))
+            {
+                if(response[0] == "102")
+                {
+                    SetShardActive();
+                    
+                    for (i = 0; i < selection.children.length; i++)
+                    {
+                        if(selection.children[i].value == response[1])
+                        {
+                            selection.children[i].selected = true;
+                            return;
+                        }
+                    }
+
+                }
+                else if(response[0] == "103")
+                {
+                    SetShardInactive();
+                }
+            }
         }
     }
 

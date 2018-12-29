@@ -19,7 +19,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <script src="../../scripts/deps/progressbar.js"></script>
 </head>
 
-<body>
+<body onload="GetShardStatus();">
     <div id="nav">
         <div class="navitem bgitemneutral" onclick="window.location.assign('./home.php');">
             <p class="navitemcontenttext">Home</p>
@@ -93,7 +93,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                 </div>
 
                 <div class="subcontainer subgrid">
-                    <input id="shardbutton" class="button buttongreen buttonround" type="button" onclick="ToggleShard(this);" value="Begin"/>
+                    <input id="shardbutton" class="button buttongreen buttonround" type="button" onclick="ToggleShard();" value="Begin"/>
                 </div>
             </div>
         </div>

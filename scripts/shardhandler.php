@@ -1,11 +1,10 @@
 <?php 
+session_start();
 
-if(isset($_POST["shard"]))
+if(isset($_POST["shard"]) && isset($_SESSION["type"]))
 {
     if($shardval = json_decode($_POST["shard"]))
     {
-        session_start();
-
         $server = "localhost";
         $user = "root";
         $password = "";
@@ -21,6 +20,7 @@ if(isset($_POST["shard"]))
             if(!$_SESSION["shardactive"])
             {
                 $_SESSION["shardactive"] = true;
+                $_SESSION["shardtype"] = $shardval->{'shardtype'};
 
                 $username = $_SESSION["username"];
                 if($sql = $db->prepare("INSERT INTO `timeshard_timetables`.`user_$username` (`action`, `comment`, `time_start`, `time_end`, `flags`) 
@@ -30,11 +30,12 @@ if(isset($_POST["shard"]))
                     $sql->execute();
 
                     $_SESSION["shardid"] = $db->insert_id;
+                    echo "100";
                 }    
             } 
             elseif($_SESSION["shardactive"])
             {
-                echo false;
+                echo "102";
             }
         }
         elseif($shardval->{'conntype'} == 1)
@@ -46,20 +47,28 @@ if(isset($_POST["shard"]))
                 $username = $_SESSION["username"];
 
 
-                if($sql = $db->prepare("UPDATE `timeshard_timetables`.`user_$username` SET `time_end`=CURRENT_TIMESTAMP, `comment`=? WHERE `user_$username`.`id`=?;"))
+                if($sql = $db->prepare("UPDATE `timeshard_timetables`.`user_$username` SET `time_end`=CURRENT_TIMESTAMP, `comment`=?, `flags`='0' WHERE `user_$username`.`id`=?;"))
                 {
                     $sql->bind_param("ss", $shardval->{'memoval'} ,$_SESSION["shardid"]);
                     $sql->execute();
-                }    
+                }
+                echo "101";    
             } 
             elseif(!$_SESSION["shardactive"])
             {
-                echo false;
+                echo "103";
             }
         }
         elseif($shardval->{'conntype'} == 2)
         {
-            echo $_SESSION["shardactive"];
+            if ($_SESSION["shardactive"] == true)
+            {
+                echo "[\"102\", \"" . $_SESSION["shardtype"] . "\"]";
+            }
+            else
+            {
+                echo "103";
+            }
         }
     }
 } 
