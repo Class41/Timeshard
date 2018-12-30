@@ -44,8 +44,7 @@ function ToggleShard()
     if(selection.value != "Select Task")
     {
         if(!shardactive)
-        {
-            
+        {         
             SetShardActive();
             shardobj.conntype = 0;
             shardobj.shardtype = selection.value;
@@ -61,6 +60,7 @@ function ToggleShard()
             FireShard(shardobj);
             memo.value = "";
             UpdateCounter(memo);
+            PullTabledata(0, document.getElementById('sessiontable'), false);
         }
     }
 

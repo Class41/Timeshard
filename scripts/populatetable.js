@@ -1,20 +1,29 @@
-var last_table;
-
-function PopulateSessionTable(values, table)
+function PopulateSessionTable(values, table, init)
 {
-    this.val = values;
-    for(i = 0; i < values.length; i++)
+    if(init == true)
+    {
+        initval = values.length - 1;
+    }
+    else if(init == false)
+    {
+        initval = 0;
+    }
+
+    console.log(values);
+    console.log(initval);
+
+    for(i = initval; i >= 0; i--)
     {
         row = table.insertRow(1);
         for(j = 0; j < 3; j++) 
         {
             cell = row.insertCell(j);
-            cell.innerText = Object.values(val[i])[j]
+            cell.innerText = Object.values(values[i])[j]
         }
     }
 }
 
-function PullTabledata(tabletype, table)
+function PullTabledata(tabletype, table, init)
 {
     if (window.XMLHttpRequest)
     {
@@ -32,7 +41,10 @@ function PullTabledata(tabletype, table)
     {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) 
         {
-            PopulateSessionTable(JSON.parse(xmlhttp.responseText), table);
+            try 
+            {
+                PopulateSessionTable(JSON.parse(xmlhttp.responseText), table, init);
+            } catch (e){}
         }
     }
         xmlhttp.send("tabletype=" + tabletype);

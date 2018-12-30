@@ -20,7 +20,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <script src="../../scripts/populatetable.js"></script>
 </head>
 
-<body onload="GetShardStatus(); PullTabledata(0, document.getElementById('sessiontable'));">
+<body onload="GetShardStatus(); PullTabledata(0, document.getElementById('sessiontable'), true);">
     <div id="nav">
         <div class="navitem bgitemneutral" onclick="window.location.assign('./home.php');">
             <p class="navitemcontenttext">Home</p>
