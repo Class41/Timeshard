@@ -1,4 +1,4 @@
-var val;
+var last_table;
 
 function PopulateSessionTable(values, table)
 {

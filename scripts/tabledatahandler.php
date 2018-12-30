@@ -12,7 +12,7 @@ if(isset($_SESSION["type"]) && isset($_POST["tabletype"]))
         case 0:
             if(isset($_SESSION["sessionbeginindex"])) 
             {
-                if($sql = $db->prepare("SELECT `user_$username`.`action`, `user_$username`.`comment`, (SELECT timediff(time_end, time_start)) AS `timedelta` FROM `timeshard_timetables`.`user_$username` WHERE (`id`>=? AND `id`<=?) OR 1=1 LIMIT 10"))
+                if($sql = $db->prepare("SELECT `user_$username`.`action`, `user_$username`.`comment`, (SELECT timediff(time_end, time_start)) AS `timedelta` FROM `timeshard_timetables`.`user_$username` WHERE `id`>=? AND `id`<=? LIMIT 10"))
                 {
                             $sql->bind_param("ss", $_SESSION["sessionbeginindex"], $_SESSION["shardid"]);
                             $sql->execute();
