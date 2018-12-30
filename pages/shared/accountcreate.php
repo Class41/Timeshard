@@ -10,7 +10,7 @@
 </head>
 
 <?php
-        $posted = false;
+        $GLOBALS["posted"] = false;
 		if($_SERVER["REQUEST_METHOD"] == "POST")
 		{
 			$GLOBALS["posted"] = true;
@@ -42,12 +42,12 @@
     <div id="register" class="container">
         <div>
             <form novalidate id="register" method="POST" action="accountcreate.php";>
-                <input class="formitem" type="text" name="username" placeholder="Username" oninput="UserNameCheck(); RegisterButtonLock();" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> <?php if($GLOBALS["posted"] == true) {echo"value=\"" . $GLOBALS["usernameErr"] . "\"";}?> /> <br />
-                <input class="formitem" type="password" name="password" oninput="PasswordCheck(); RegisterButtonLock();" placeholder="Password"/><?php if($GLOBALS["posted"] == true) { echo"value=\"" . $GLOBALS["passwordErr"] . "\"";}?> <br />
-                <input class="formitem" type="password" name="password2" oninput="PasswordRepeatCheck(); RegisterButtonLock();" placeholder="Repeat Password"/><?php if($GLOBALS["posted"] == true) { echo"value=\"" . $GLOBALS["repeatpasswordErr"] . "\"";}?><br />
-                <input class="formitem" type="text" name="firstName" oninput="FirstNameCheck(); RegisterButtonLock();" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?><?php if($GLOBALS["posted"] == true) { echo"value=\"" . $GLOBALS["firstNameErr"] . "\"";}?> /><br />
-                <input class="formitem" type="text" name="lastName" oninput="LastNameCheck(); RegisterButtonLock();" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?><?php if($GLOBALS["posted"] == true) { echo"value=\"" . $GLOBALS["lastNameErr"] . "\"";}?> /><br />
-                <input class="formitem" type="email" name="email" oninput="EmailCheck(); RegisterButtonLock();" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> <?php if($GLOBALS["posted"] == true) { echo"value=\"" . $GLOBALS["emailErr"] . "\"";}?>/><br />
+                <input class="formitem" type="text" name="username" placeholder="Username" oninput="UserNameCheck(); RegisterButtonLock();" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /> <?php if($GLOBALS["posted"] == true) {echo "value=\"" . $GLOBALS["usernameErr"] . "\"";}?> <br />
+                <input class="formitem" type="password" name="password" oninput="PasswordCheck(); RegisterButtonLock();" placeholder="Password"/><?php if($GLOBALS["posted"] == true) { echo "value=\"" . $GLOBALS["passwordErr"] . "\"";}?> <br />
+                <input class="formitem" type="password" name="password2" oninput="PasswordRepeatCheck(); RegisterButtonLock();" placeholder="Repeat Password"/><?php if($GLOBALS["posted"] == true) { echo "value=\"" . $GLOBALS["repeatpasswordErr"] . "\"";}?><br />
+                <input class="formitem" type="text" name="firstName" oninput="FirstNameCheck(); RegisterButtonLock();" placeholder="First Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["firstName"] . "\"";}?> /> <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $GLOBALS["firstNameErr"] . "\"";}?> <br />
+                <input class="formitem" type="text" name="lastName" oninput="LastNameCheck(); RegisterButtonLock();" placeholder="Last Name" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["lastName"] . "\"";}?> /> <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $GLOBALS["lastNameErr"] . "\"";}?> <br />
+                <input class="formitem" type="email" name="email" oninput="EmailCheck(); RegisterButtonLock();" placeholder="Email" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["email"] . "\"";}?> /> <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $GLOBALS["emailErr"] . "\"";}?> <br />
                 <input id="formsubmit" class="button buttongreen" type="submit" value="Create"> <br />
             </form>
         </div>
