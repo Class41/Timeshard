@@ -1,13 +1,6 @@
 <?php
-    $server = "localhost";
-    $user = "root";
-    $password = "";
 
-    $db = new mysqli($server, $user, $password);
-
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-    }
+    require("./scripts/dbconn.php");
 
     $sql = "CREATE DATABASE IF NOT EXISTS timeshard;";
     $db->query($sql);

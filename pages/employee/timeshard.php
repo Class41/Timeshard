@@ -56,15 +56,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                 <div class="subcontainer subgrid floatleft"> 
                     <h3>New Shard</h3>
                     <?php
-                        $server = "localhost";
-                        $user = "root";
-                        $password = "";
-                    
-                        $db = new mysqli($server, $user, $password);
-                    
-                        if ($db->connect_error) {
-                            die("Connection failed: " . $db->connect_error);
-                        }
+                        require("../../scripts/dbconn.php");
 
                         if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE `group`=?;"))
                         {

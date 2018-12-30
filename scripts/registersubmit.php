@@ -27,11 +27,7 @@
 
     function InsertRegistration()
     {
-        $server = "localhost";
-        $user = "root";
-        $password = "";
-        
-        $db = new mysqli($server, $user, $password);
+        require("../../scripts/dbconn.php");
 
         $sql = "CREATE DATABASE IF NOT EXISTS timeshard;";
         $db->query($sql);
