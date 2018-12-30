@@ -5,16 +5,7 @@ if(isset($_POST["shard"]) && isset($_SESSION["type"]))
 {
     if($shardval = json_decode($_POST["shard"]))
     {
-        $server = "localhost";
-        $user = "root";
-        $password = "";
-    
-        $db = new mysqli($server, $user, $password);
-
-        if ($db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
-        }
-
+        require("./dbconn.php");
         if($shardval->{'conntype'} == 0)
         {      
             if(!$_SESSION["shardactive"])

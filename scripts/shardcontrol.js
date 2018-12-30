@@ -79,7 +79,7 @@ function FireShard(shard)
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xmlhttp.open("POST","../../scripts/shardhandler.php", true);
+    xmlhttp.open("POST","../../scripts/shardhandler.php", false);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xmlhttp.onreadystatechange = function() {
@@ -98,7 +98,6 @@ function FireShard(shard)
                             return;
                         }
                     }
-
                 }
                 else if(response[0] == "103")
                 {

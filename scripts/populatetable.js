@@ -1,23 +1,20 @@
-function PopulateSessionTable()
-{
-    table = document.getElementById("sessiontable");
+var val;
 
-    for(i = 0; i < 10; i++)
+function PopulateSessionTable(values, table)
+{
+    this.val = values;
+    for(i = 0; i < values.length; i++)
     {
         row = table.insertRow(1);
         for(j = 0; j < 3; j++) 
         {
             cell = row.insertCell(j);
-            cell.innerText = "Bob " + i + " " + j;
+            cell.innerText = Object.values(val[i])[j]
         }
     }
 }
 
-tableobj = {
-            type:-1
-            }
-
-function PullTabledata()
+function PullTabledata(tabletype, table)
 {
     if (window.XMLHttpRequest)
     {
@@ -28,15 +25,15 @@ function PullTabledata()
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
 
-    xmlhttp.open("POST","../../scripts/shardhandler.php", true);
+    xmlhttp.open("POST","../../scripts/tabledatahandler.php", true);
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xmlhttp.onreadystatechange = function() 
     {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200) 
         {
+            PopulateSessionTable(JSON.parse(xmlhttp.responseText), table);
         }
     }
-
-        xmlhttp.send("shard=" + shard);
+        xmlhttp.send("tabletype=" + tabletype);
 }

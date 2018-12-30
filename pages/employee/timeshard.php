@@ -20,7 +20,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <script src="../../scripts/populatetable.js"></script>
 </head>
 
-<body onload="GetShardStatus();">
+<body onload="GetShardStatus(); PullTabledata(0, document.getElementById('sessiontable'));">
     <div id="nav">
         <div class="navitem bgitemneutral" onclick="window.location.assign('./home.php');">
             <p class="navitemcontenttext">Home</p>
@@ -56,15 +56,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                 <div class="subcontainer subgrid floatleft"> 
                     <h3>New Shard</h3>
                     <?php
-                        $server = "localhost";
-                        $user = "root";
-                        $password = "";
-                    
-                        $db = new mysqli($server, $user, $password);
-                    
-                        if ($db->connect_error) {
-                            die("Connection failed: " . $db->connect_error);
-                        }
+                        require("../../scripts/dbconn.php");
 
                         if($sql = $db->prepare("SELECT value FROM timeshard_settings.employee_options WHERE `group`=?;"))
                         {
@@ -104,7 +96,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         </div>
         <div class="container containerlarge">
             <div>
-                <table id="sessiontable" onload="PopulateSessionTable()">
+                <table id="sessiontable">
                     <tr>
                         <th>Action</th>
                         <th>Comment</th>
