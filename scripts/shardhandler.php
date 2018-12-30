@@ -6,7 +6,6 @@ if(isset($_POST["shard"]) && isset($_SESSION["type"]))
     if($shardval = json_decode($_POST["shard"]))
     {
         require("./dbconn.php");
-
         if($shardval->{'conntype'} == 0)
         {      
             if(!$_SESSION["shardactive"])

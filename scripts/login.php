@@ -58,6 +58,7 @@
             $_SESSION["type"] = $row["type"];
             $_SESSION["id"] = $row["id"];
             $_SESSION["group"] = $row["group"];
+            $_SESSION["shardactive"] = false;
             
             if($sql = $db->prepare("SELECT * FROM timeshard.user 
                 INNER JOIN timeshard.accounts ON 
