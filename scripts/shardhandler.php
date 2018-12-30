@@ -26,12 +26,13 @@ if ( isset( $_POST[ "shard" ] ) && isset( $_SESSION[ "type" ] ) )
                     {
                         $_SESSION[ "sessionbeginindex" ] = $_SESSION[ "shardid" ];
                     }
-                    
+                    mysqli_close( $db );
                     echo "100";
                 }
             }
             elseif ( $_SESSION[ "shardactive" ] )
             {
+                mysqli_close( $db );
                 echo "102";
             }
         }
@@ -48,16 +49,19 @@ if ( isset( $_POST[ "shard" ] ) && isset( $_SESSION[ "type" ] ) )
                 {
                     $sql->bind_param( "ss", $shardval->{'memoval'}, $_SESSION[ "shardid" ] );
                     $sql->execute();
+                    mysqli_close( $db );
                 }
                 echo "101";
             }
             elseif ( !$_SESSION[ "shardactive" ] )
             {
+                mysqli_close( $db );
                 echo "103";
             }
         }
         elseif ( $shardval->{'conntype'} == 2 )
         {
+            mysqli_close( $db );
             if ( $_SESSION[ "shardactive" ] == true )
             {
                 echo "[\"102\", \"" . $_SESSION[ "shardtype" ] . "\"]";

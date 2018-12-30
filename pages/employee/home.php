@@ -44,7 +44,6 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         </div>
     </div>
     <div id="pagecontent">
-
         <div class="flag flaggreen containerheaderflag flaglarge">
             <h1 class="textneutral">Summary</h1>
         </div>

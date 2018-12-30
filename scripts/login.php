@@ -38,6 +38,15 @@ $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`accounts` (
         PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=latin1 COLLATE latin1_general_cs;";
 $db->query( $sql );
 
+$sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`sessions` (
+    `id` VARCHAR(32) NOT NULL,
+    `access` INT(10) unsigned,
+    `data` TEXT,
+    PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB;";
+
+$db->query( $sql );
+
 if ( $sql = $db->prepare( "SELECT * FROM timeshard.accounts WHERE username=?" ) )
 {
     $sql->bind_param( "s", $_POST[ "username" ] );

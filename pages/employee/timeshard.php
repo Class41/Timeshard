@@ -64,6 +64,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             $sql->execute();
 
                             $result = $sql->get_result();
+                            mysqli_close( $db );
                         }
                     ?>        
                     <select id="taskselector">
