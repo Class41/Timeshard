@@ -65,7 +65,7 @@ function EmailCheck() {
 const pwreg1 = /[A-Z]/m;
 const pwreg2 = /[a-z]/m;
 const pwreg3 = /[0-9]/m;
-const pwreg4 = /[~`!#$%\^&*+=\[\]\\';,\/{}|\:<>\?]/m;
+const pwreg4 = /[\~\`\!\#\$\%\\^\&\*\+\=\[\]\\\'\;\,\/\{\}\|\\\:\<\>\\\?]/m;
 const pwreg5 = /^.{8,96}$/m;
 
 function PasswordCheck() {
