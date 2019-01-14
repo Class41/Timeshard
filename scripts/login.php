@@ -41,6 +41,7 @@ $db->query( $sql );
 $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`sessions` (
     `id` VARCHAR(32) NOT NULL,
     `access` INT(10) unsigned,
+    `user` VARCHAR(30) NOT NULL,
     `data` TEXT,
     PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;";
