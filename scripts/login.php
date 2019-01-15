@@ -41,6 +41,7 @@ $db->query( $sql );
 $sql = "CREATE TABLE IF NOT EXISTS `timeshard`.`sessions` (
     `id` VARCHAR(32) NOT NULL,
     `access` INT(10) unsigned,
+    `user` VARCHAR(30) NOT NULL,
     `data` TEXT,
     PRIMARY KEY (`id`)
     ) ENGINE = InnoDB;";
@@ -62,7 +63,6 @@ if ( $result->num_rows == 1 )
     
     if ( password_verify( $_POST[ "password" ] . $row[ "salt" ] . $_POST[ "password" ], $row[ "password" ] ) )
     {
-        session_start();
         $_SESSION[ "username" ]    = $row[ "username" ];
         $_SESSION[ "type" ]        = $row[ "type" ];
         $_SESSION[ "id" ]          = $row[ "id" ];

@@ -1,4 +1,4 @@
 <?php
-session_start();
+require(realpath(dirname(__FILE__)."./sessionmgr.php"));
 session_destroy();
 ?>

@@ -4,7 +4,7 @@
 	$valid = true;
 	$posted = false;
 
-	session_start();
+	require("./scripts/sessionmgr.php");
 	
 	if(isset($_SESSION["id"]))
 	{
