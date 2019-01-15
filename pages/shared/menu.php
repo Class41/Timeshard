@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <?php 
-    session_start();
+    require("../../scripts/sessionmgr.php");
 
     if($_SESSION["type"] == "employee")
     {

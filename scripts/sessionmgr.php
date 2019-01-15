@@ -8,23 +8,18 @@ session_set_save_handler('_open',
  
 function _open()
 {
-    echo "open: called";
-    require("./scripts/dbconn.php");
-    echo "open: success";
+    require(realpath(dirname(__FILE__)."./dbconn.php"));
     return true;
 }
  
 function _close()
 {
-    echo "close: called";
     global $db;
-    echo "close: success";
     return mysqli_close( $db );
 }
 
 function _read($id)
 { 
-    echo "read: called";
     global $db;
 
     $id = $db->real_escape_string($id);
@@ -35,21 +30,23 @@ function _read($id)
 
     if ($result = $db->query( $sql )) {
         if (mysqli_num_rows($result)) {
-            $record = mysql_fetch_assoc($result);
-            echo "read: success";
+            $record = mysqli_fetch_assoc($result);
             $GLOBALS["dataexists"] = true;
             return $record['data'];
         }
     }
 
-    echo "read: success/return nothing";
+    $timestamp = time();
+
+    $sql = "INSERT INTO `timeshard`.`sessions`(`id`, `access`, `user`, `data`) VALUES ('$id', '$timestamp', '', '');";
+
     $GLOBALS["dataexists"] = false;
-    return false;
+    return '';
 }
 
 function _write($id, $data)
 {
-    echo "write: called";
+    require(realpath(dirname(__FILE__)."./dbconn.php"));
     global $db;
 
     $id = $db->real_escape_string($id);
@@ -57,17 +54,17 @@ function _write($id, $data)
  
     if(isset($GLOBALS["dataexists"]) && $GLOBALS["dataexists"] == true)
     {
-        $sql = "UPDATE `timeshard`.`sessions` SET `data`='$data' WHERE `id`='$id'";
-        echo "write: success/exists";
+        $username = $_SESSION["username"];
+
+        $sql = "UPDATE `timeshard`.`sessions` SET `data`='$data', `user`='$username' WHERE `id`='$id'";
         return $db->query( $sql );
     }
     else if(isset($GLOBALS["dataexists"]) && $GLOBALS["dataexists"] == false)
     {
-        $username = $_SESSION["username"];
         $timestamp = time();
 
-        $sql = "INSERT INTO `timeshard`.`sessions`(`id`, `access`, `user`, `data`) VALUES ('$id', '$timestamp', '$username', '$data');";
-        echo "write: success/created";
+        $sql = "INSERT INTO `timeshard`.`sessions`(`id`, `access`, `data`) VALUES ('$id', '$timestamp', '$data');";
+        $GLOBALS["dataexists"] = true;
         return $db->query( $sql );
     }
     else
@@ -79,7 +76,6 @@ function _write($id, $data)
 
 function _destroy($id)
 { 
-    echo "destroy: called";
     global $db;
     $id = $db->real_escape_string($id);
  
@@ -87,13 +83,11 @@ function _destroy($id)
             FROM `timeshard`.`sessions`
             WHERE `id`='$id'";
  
-    echo "destroy: success";
     return $db->query( $sql );
 }
 
 function _clean($max)
 { 
-    echo "clean: called";
     global $db;
     $old = time() - $max;
     $old = $db->real_escape_string($old);
@@ -102,12 +96,8 @@ function _clean($max)
             FROM `timeshard`.`sessions`
             WHERE `access`<'$old'";
 
-    echo "<br/><br/>clean: success";
     return $db->query( $sql );
 }
 
-
 session_start();
-
-$_SESSION["test"] = 5;
 ?>

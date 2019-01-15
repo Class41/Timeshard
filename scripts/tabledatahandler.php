@@ -1,5 +1,5 @@
 <?php
-session_start();
+require(realpath(dirname(__FILE__)."./sessionmgr.php"));
 
 if ( isset( $_SESSION[ "type" ] ) && isset( $_POST[ "tabletype" ] ) )
 {

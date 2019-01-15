@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 <?php
-session_start();
+require("../../scripts/sessionmgr.php");
 
 if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["type"] == "hybrid"))
 {
