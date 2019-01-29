@@ -22,10 +22,13 @@ function SetShardActive()
     button.value = "End";
     button.classList.add("buttonroundred");
     button.classList.remove("buttongreen");
-
+    
     selection.disabled = true;
 
     shardactive = true;
+
+    button.disabled = true;
+    setTimeout(function() { button.disabled = false }, 1000);
 }
 
 function SetShardInactive()

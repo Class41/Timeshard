@@ -68,12 +68,12 @@ function PullTabledata(tabletype, table, init, dequeued = false)
             try 
             {
                 PopulateSessionTable(JSON.parse(xmlhttp.responseText), table, init);
-                
+                dataTransmit = false;
+
                 if(dataQueue.length > 0)
                 {
-                    dataTransmit = false;
                     var param = dataQueue.shift();
-                    PullTabledata(param[0], param[1], param[2]);
+                    PullTabledata(param[0], param[1], param[2], true);
                 }
 
             } catch (e){}
