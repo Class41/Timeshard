@@ -49,13 +49,17 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
         }
         elseif ( !preg_match( '#[a-z]+#', $password ) || preg_match( '#[\~\`\!\#\$\%\\^\&\*\+\=\[\]\\\'\;\,\/\{\}\|\\\:\<\>\\\?]+#', $password ) )
         {
-            $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Lowercase Letter and a valid special Character!";
+            $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Uppercase Letter and a valid special Character!";
             $isValid == false;
         }
     }
-    elseif ( isset( $_POST[ "password2" ] ) )
+    else {
+        $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Lowercase Letter and a valid special Character!";
+            $isValid == false;
+    }
+    if ( isset( $_POST[ "password2" ] ) )
     {
-        $GLOBALS[ "repeatpasswordErr" ] = "Please Check You've Entered Or Confirmed Your Password!";
+        $GLOBALS[ "repeatpasswordErr" ] = "Please make sure passwords match";
         $isValid == false;
         
     }

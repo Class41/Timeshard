@@ -335,6 +335,8 @@ input {
     top: 35px;
 }
 
+.error {color: #FF0000;}
+
 .bgitemneutral {
     background-color: #2c3e50;
 }
