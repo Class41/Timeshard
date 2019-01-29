@@ -56,13 +56,7 @@ $emailErr = isset($_POST['email']) ? $_POST['email'] : NULL;
         <div>
             <form novalidate id="register" method="POST" action="accountcreate.php";>
                 <p><span class="error">* required field</span></p>
-                <p><span> Only letters and numbers with a minimum of 8 Characters. No white space allowed for Username. </span></p>
-                <p><span> Passowords have to have atleast 1 Uppercase and valid Special Character with a minimum length of 8 and Maximum Length of 96.</span></p>
-                <p><span> First and last names cannot be anything other than letters.</span></p>
-                <p><span> Only letters and numbers with a minimum of 8 Characters. No white space allowed for Username. </span></p>
-                <p><span> Please give a valid email Address. </span></p>
-
-
+                
                 <input class="formitem" type="text" name="username" placeholder="Username" oninput="UserNameCheck(); RegisterButtonLock();" <?php if($GLOBALS["posted"] == true) { echo "value=\"" . $_POST["username"] . "\"";}?> /><span class="error">* <?php echo $GLOBALS["usernameErr"];?></span>
                 <input class="formitem" type="password" name="password" oninput="PasswordCheck(); RegisterButtonLock();" placeholder="Password" /><span class="error">* <?php echo $GLOBALS["passwordErr"];?></span>
                 <input class="formitem" type="password" name="password2" oninput="PasswordRepeatCheck(); RegisterButtonLock();" placeholder="Repeat Password" /><span class="error">* <?php echo $GLOBALS["repeatpasswordErr"];?></span>

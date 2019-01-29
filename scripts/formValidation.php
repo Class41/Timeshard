@@ -10,12 +10,22 @@ function test_input( $data )
     return $data;
 }
 
+$GLOBALS[ "usernameErr" ] = NULL;
+$GLOBALS[ "passwordErr" ] = NULL; 
+$GLOBALS[ "repeatpasswordErr" ] = NULL; 
+$GLOBALS[ "firstNameErr" ] = NULL; 
+$GLOBALS[ "lastNameErr" ] = NULL; 
+$GLOBALS[ "emailErr" ] = NULL; 
+
+
+
+
 if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
 {
     if ( !isset( $_POST[ "username" ] ) )
     {
         $GLOBALS[ "usernameErr" ] = "username is required";
-        $isValid == false;
+        $isValid = false;
     }
     else
     {
@@ -24,7 +34,7 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
         if ( !preg_match( "/^[a-zA-Z0-9]{6,30}$/", $username ) )
         {
             $GLOBALS[ "usernameErr" ] = "Only letters and numbers. No white space allowed";
-            $isValid == false;
+            $isValid = false;
         }
     }
     
@@ -35,32 +45,32 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
         if ( ( strlen( $_POST[ "password" ] ) <= '8' ) && ( strlen( $_POST[ "password" ] ) > 96 ) )
         {
             $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 8 Characters and not longer than 96 Characters";
-            $isValid == false;
+            $isValid = false;
         }
         elseif ( !preg_match( '#[0-9]+#', $password ) )
         {
             $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Number!";
-            $isValid == false;
+            $isValid = false;
         }
         elseif ( !preg_match( '#[A-Z]+#', $password ) )
         {
             $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Capital Letter!";
-            $isValid == false;
+            $isValid = false;
         }
         elseif ( !preg_match( '#[a-z]+#', $password ) || preg_match( '#[\~\`\!\#\$\%\\^\&\*\+\=\[\]\\\'\;\,\/\{\}\|\\\:\<\>\\\?]+#', $password ) )
         {
             $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Uppercase Letter and a valid special Character!";
-            $isValid == false;
+            $isValid = false;
         }
     }
     else {
         $GLOBALS[ "passwordErr" ] = "Your Password Must Contain At Least 1 Lowercase Letter and a valid special Character!";
-            $isValid == false;
+            $isValid = false;
     }
     if ( isset( $_POST[ "password2" ] ) )
     {
         $GLOBALS[ "repeatpasswordErr" ] = "Please make sure passwords match";
-        $isValid == false;
+        $isValid = false;
         
     }
     else
@@ -70,7 +80,7 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
     if ( !isset( $_POST[ "firstName" ] ) )
     {
         $GLOBALS[ "firstNameErr" ] = "Name is required";
-        $isValid == false;
+        $isValid = false;
     }
     else
     {
@@ -79,14 +89,14 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
         if ( !preg_match( "/^[a-zA-Z]{1,30}$/", $firstName ) )
         {
             $GLOBALS[ "firstNameErr" ] = "Only letters and no white space allowed";
-            $isValid == false;
+            $isValid = false;
         }
     }
     
     if ( !isset( $_POST[ "lastName" ] ) )
     {
         $GLOBALS[ "lastNameErr" ] = "Name is required";
-        $isValid == false;
+        $isValid = false;
     }
     else
     {
@@ -95,14 +105,14 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
         if ( !preg_match( "/^[a-zA-Z]{1,30}$/", $lastName ) )
         {
             $GLOBALS[ "lastNameErr" ] = "Only letters and white space allowed";
-            $isValid == false;
+            $isValid = false;
         }
     }
     // check if name only contains letters and whitespace
     if ( !isset( $_POST[ "email" ] ) )
     {
         $GLOBALS[ "emailErr" ] = "Email is required";
-        $isValid == false;
+        $isValid = false;
     }
     else
     {
@@ -111,7 +121,7 @@ if ( $_SERVER[ "REQUEST_METHOD" ] == "POST" )
         if ( !filter_var( $email, FILTER_VALIDATE_EMAIL ) )
         {
             $GLOBALS[ "emailErr" ] = "Invalid email format";
-            $isValid == false;
+            $isValid = false;
         }
     }
     

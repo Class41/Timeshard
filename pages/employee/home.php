@@ -18,7 +18,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <script src="../../scripts/populatetable.js"></script>
 </head>
 
-<body onload="PullTabledata(1, document.getElementById('tableuserrecent'), true);">
+<body onload="PullTabledata(1, document.getElementById('tableuserrecent'), true); PullTabledata(2, document.getElementById('tableuserhistory'), true);">
     <div id="nav">
         <div class="navitem bgitemneutral" onclick="window.location.assign('./timeshard.php');">
             <p class="navitemcontenttext">Shard</p>
@@ -83,7 +83,7 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         </div>
         <div class="container containerlarge">
                 <div>
-                    <table>
+                    <table id="tableuserhistory">
                         <tr>
                             <th>Time Period</th>
                             <th>Target Met</th>

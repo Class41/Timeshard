@@ -28,8 +28,27 @@ function PopulateSessionTable(values, table, init)
     }
 }
 
-function PullTabledata(tabletype, table, init)
+var dataQueue = [];
+var dataTransmit = false;
+
+function PullTabledata(tabletype, table, init, dequeued = false)
 {
+    dataQueue.push([tabletype, table, init]);
+
+    if(dataQueue.length == 1 && dataTransmit == false)
+    {
+        dataQueue.shift();
+        dataTransmit = true;
+    }
+    else if (dequeued == true)
+    {
+        dataTransmit = true;
+    }
+    else
+    {
+        return;
+    }
+
     if (window.XMLHttpRequest)
     {
         xmlhttp=new XMLHttpRequest();
@@ -49,6 +68,14 @@ function PullTabledata(tabletype, table, init)
             try 
             {
                 PopulateSessionTable(JSON.parse(xmlhttp.responseText), table, init);
+                
+                if(dataQueue.length > 0)
+                {
+                    dataTransmit = false;
+                    var param = dataQueue.shift();
+                    PullTabledata(param[0], param[1], param[2]);
+                }
+
             } catch (e){}
         }
     }
