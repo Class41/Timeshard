@@ -9,8 +9,8 @@ function PopulateSessionTable(values, table, init)
         initval = 0;
     }
 
-    console.log(values);
-    console.log(initval);
+    //console.log(values);
+    //console.log(initval);
 
     for(i = initval; i >= 0; i--)
     {
@@ -20,6 +20,11 @@ function PopulateSessionTable(values, table, init)
             cell = row.insertCell(j);
             cell.innerText = Object.values(values[i])[j]
         }
+    }
+
+    while(table.rows.length > 10)
+    {
+        table.deleteRow(table.rows.length - 1);
     }
 }
 

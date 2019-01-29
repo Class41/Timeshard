@@ -18,8 +18,8 @@
     <link rel="stylesheet" type="text/css" href="./styles/login.css" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Muli" rel="stylesheet">
     <title>Timeshard - Login</title>
-</head>
 
+</head>
 	<?php
 		if($_SERVER["REQUEST_METHOD"] == "POST")
 		{

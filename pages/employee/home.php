@@ -15,9 +15,10 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
     <title>Timeshard - <?php echo $_SESSION["firstname"][0] . ". " . $_SESSION["lastname"][0];?></title>
     <script src="../../scripts/logout.js"></script>
     <script src="../../scripts/deps/progressbar.js"></script>
+    <script src="../../scripts/populatetable.js"></script>
 </head>
 
-<body>
+<body onload="PullTabledata(1, document.getElementById('tableuserrecent'), true);">
     <div id="nav">
         <div class="navitem bgitemneutral" onclick="window.location.assign('./timeshard.php');">
             <p class="navitemcontenttext">Shard</p>
@@ -67,38 +68,12 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
         </div>
         <div class="container containerlarge">
             <div>
-                    <table>
+                    <table id="tableuserrecent">
                         <tr>
                             <th>Action</th>
                             <th>Comment</th>
                             <th>Duration</th>
                         </tr>
-                        <tr>
-                            <td>Floor - Stocked Shelves</td>
-                            <td>Stocked isles 1-3</td>
-                            <td>3h15m</td>
-                       </tr>
-                        <tr>
-                            <td>Floor - Stocked Shelves</td>
-                            <td>Stocked isles 1-3</td>
-                            <td>3h15m</td>
-                         </tr>
-                         <tr>
-                            <td>Floor - Stocked Shelves</td>
-                            <td>Stocked isles 1-3</td>
-                            <td>3h15m</td>
-                         </tr>
-                         <tr>
-                            <td>Floor - Stocked Shelves</td>
-                            <td>Stocked isles 1-3</td>
-                            <td>3h15m</td>
-                         </tr>
-                         <tr>
-                            <td>Floor - Stocked Shelves</td>
-                            <td>Stocked isles 1-3</td>
-                            <td>3h15m</td>
-                         </tr>
-
                     </table>
                 </div>
         </div>
