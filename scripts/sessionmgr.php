@@ -5,7 +5,7 @@ session_set_save_handler('_open',
                          '_write',
                          '_destroy',
                          '_clean');
- 
+
 function _open()
 {
     require(realpath(dirname(__FILE__)."./dbconn.php"));
@@ -23,7 +23,7 @@ function _read($id)
     global $db;
 
     $id = $db->real_escape_string($id);
- 
+
     $sql = "SELECT `data`
             FROM `timeshard`.`sessions`
             WHERE `id`='$id'";

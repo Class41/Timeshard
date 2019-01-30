@@ -63,6 +63,22 @@ if ( $result->num_rows == 1 )
     
     if ( password_verify( $_POST[ "password" ] . $row[ "salt" ] . $_POST[ "password" ], $row[ "password" ] ) )
     {
+
+        $user = $row[ "username" ];
+
+        $sql = "SELECT `id`
+        FROM `timeshard`.`sessions`
+        WHERE `user`='$user'";
+
+        if ($result = $db->query( $sql )) {
+            if (mysqli_num_rows($result)) {
+                $record = mysqli_fetch_assoc($result);
+                session_destroy();
+                session_id($record['id']);
+                session_start();
+            }
+        }
+
         $_SESSION[ "username" ]    = $row[ "username" ];
         $_SESSION[ "type" ]        = $row[ "type" ];
         $_SESSION[ "id" ]          = $row[ "id" ];
