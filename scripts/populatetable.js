@@ -67,6 +67,7 @@ function PullTabledata(tabletype, table, init, dequeued = false)
         {
             try 
             {
+                console.log(xmlhttp.responseText);
                 PopulateSessionTable(JSON.parse(xmlhttp.responseText), table, init);
                 dataTransmit = false;
 

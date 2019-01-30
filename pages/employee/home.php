@@ -89,21 +89,6 @@ if(isset($_SESSION["type"]) && ($_SESSION["type"] == "employee" || $_SESSION["ty
                             <th>Target Met</th>
                             <th>Duration</th>
                         </tr>
-                        <tr>
-                            <td>7 days</td>
-                            <td>Yes</td>
-                            <td>42/40 hours</td>
-                       </tr>
-                       <tr>
-                            <td>30 days</td>
-                            <td>Yes</td>
-                            <td>176/171 hours</td>
-                       </tr>
-                       <tr>
-                            <td>90 days</td>
-                            <td>No</td>
-                            <td>480/514 hours</td>
-                       </tr>
                     </table>
                 </div>
         </div>
