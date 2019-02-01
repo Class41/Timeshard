@@ -335,7 +335,12 @@ input {
     top: 35px;
 }
 
-.error {color: #FF0000;}
+.error {
+    color: #FF0000;
+    position: absolute;
+    overflow: visible;
+    white-space: nowrap;
+}
 
 .bgitemneutral {
     background-color: #2c3e50;
