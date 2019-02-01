@@ -8,7 +8,7 @@ session_set_save_handler('_open',
 
 function _open()
 {
-    require(realpath(dirname(__FILE__)."./dbconn.php"));
+    require(realpath(dirname(__FILE__)."/dbconn.php"));
     return true;
 }
  
@@ -46,7 +46,7 @@ function _read($id)
 
 function _write($id, $data)
 {
-    require(realpath(dirname(__FILE__)."./dbconn.php"));
+    require(realpath(dirname(__FILE__)."/dbconn.php"));
     global $db;
 
     $id = $db->real_escape_string($id);
